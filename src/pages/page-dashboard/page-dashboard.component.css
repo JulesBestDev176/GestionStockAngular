@@ -1,0 +1,12 @@
+.main-container {
+  margin: 30px;
+}
+.no-wrap{
+  flex-wrap: nowrap;
+}
+.min-height-500{
+  min-height: 500px;
+}
+.min-height-80{
+  min-height: 80px;
+}
