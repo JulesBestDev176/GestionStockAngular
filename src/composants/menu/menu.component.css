@@ -1,0 +1,45 @@
+.accordion {
+  max-width: 600px; /* Réduction de la largeur maximale de l'accordéon */
+  margin: auto; /* Centrer l'accordéon */
+  background-color: #eff2ef;
+  border: 1px solid #dee2e6; /* Ajout de bordure */
+  border-radius: 0.25rem;
+}
+.accordion-button {
+  color: #007bff; /* Couleur bleue pour les titres des menus */
+  font-weight: bold; /* Texte en gras */
+  background-color: #eff2ef; /* Fond gris pour le menu */
+  font-size: 0.9rem; /* Taille de police réduite */
+  font-family: 'Arial', sans-serif; /* Belle police (Arial) */
+  padding: 10px 15px; /* Réduction du padding pour une taille plus compacte */
+}
+
+
+.accordion-button:focus {
+  box-shadow: none; /* Suppression de l'ombre au focus */
+}
+
+.list-group-item {
+  background-color: #f8f9fa; /* Couleur de fond des éléments de la liste */
+  border: 1px solid #dee2e6; /* Bordure des éléments de la liste */
+  border-top: none; /* Supprime la bordure du haut pour les éléments de la liste */
+  font-size: 0.85rem; /* Taille de police réduite pour les sous-menus */
+  font-family: 'Arial', sans-serif; /* Belle police (Arial) */
+  padding: 8px 15px; /* Réduction du padding pour une taille plus compacte */
+}
+.list-group-item:first-child {
+  border-top: 1px solid #dee2e6; /* Ajoute la bordure supérieure au premier élément */
+}
+.list-group-item:hover {
+  background-color: #e2e6ea; /* Couleur de fond au survol */
+}
+.list-group-item a {
+  color: #343a40; /* Couleur du texte des liens */
+  text-decoration: none;
+}
+.list-group-item a:hover {
+  color: #007bff; /* Couleur du texte des liens au survol */
+}
+.accordion-header {
+  border-bottom: 1px solid #dee2e6; /* Bordure inférieure pour séparer les en-têtes des menus */
+}

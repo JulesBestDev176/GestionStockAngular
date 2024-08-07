@@ -1,14 +1,21 @@
 <div class="main-container">
   <div class="row min-height-500 no-wrap">
-    <div class="card col-md-2 me-2">
-      Menu Left
-    </div>
-    <div class="card col-md-10  border-none background-grey d-flex justify-content-between ">
-      <div class="card row min-height-80 ps-0 pe-0">
-        header
+    <div class="card col-md-3 me-2">
+      <div class="col ps-0 pe-0">
+        <div class="card mb-2 mt-3 text-center border-none">
+          <h6>Gestion Stock V1.0</h6>
+        </div>
+        <div>
+          <app-menu></app-menu>
+        </div>
       </div>
-      <div class="card row ps-0 pe-0" style="min-height: 320px">
-        main
+    </div>
+    <div class="card col-md-9  border-none background-grey d-flex justify-content-between ">
+      <div class="card row min-height-80 p-3   mb-2 d-flex flex-row align-items-center flex-wrap ">
+        <app-header></app-header>
+      </div>
+      <div class="card row ps-0 pe-0 mb-2" style="height: 320px">
+        <router-outlet></router-outlet>
       </div>
       <div class="card row min-height-80 ps-0 pe-0">
         footer
