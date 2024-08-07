@@ -1,4 +1,4 @@
-.accordion {
+.my-accordion {
   max-width: 600px; /* Réduction de la largeur maximale de l'accordéon */
   margin: auto; /* Centrer l'accordéon */
   background-color: #eff2ef;

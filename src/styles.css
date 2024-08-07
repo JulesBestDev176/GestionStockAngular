@@ -10,3 +10,12 @@ body{
 .border-none {
   border: none !important;
 }
+
+.border-right{
+  border-right: solid #eff2ef 4px !important;
+}
+
+.police{
+  font-size: 12px !important ;
+
+}
