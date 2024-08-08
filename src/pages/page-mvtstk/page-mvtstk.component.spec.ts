@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageArticleComponent } from './page-article.component';
+import { PageMvtstkComponent } from './page-mvtstk.component';
 
-describe('PageArticleComponent', () => {
-  let component: PageArticleComponent;
-  let fixture: ComponentFixture<PageArticleComponent>;
+describe('PageMvtstkComponent', () => {
+  let component: PageMvtstkComponent;
+  let fixture: ComponentFixture<PageMvtstkComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageArticleComponent]
+      imports: [PageMvtstkComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageArticleComponent);
+    fixture = TestBed.createComponent(PageMvtstkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

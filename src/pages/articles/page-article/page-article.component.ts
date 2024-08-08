@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import {DetailArticleComponent} from "../../composants/articles/detail-article/detail-article.component";
-import {PaginationComponent} from "../../composants/pagination/pagination.component";
-import {BoutonActionComponent} from "../../composants/bouton-action/bouton-action.component";
+import {DetailArticleComponent} from "../../../composants/articles/detail-article/detail-article.component";
+import {PaginationComponent} from "../../../composants/pagination/pagination.component";
+import {BoutonActionComponent} from "../../../composants/bouton-action/bouton-action.component";
 
 @Component({
   selector: 'app-page-article',
   standalone: true,
   imports: [
-    DetailArticleComponent,
     DetailArticleComponent,
     PaginationComponent,
     BoutonActionComponent
