@@ -8,18 +8,43 @@
     </div>
   </div>
   <div class="card p-3">
-    <div class="accordion" id="accordionExample">
-      <div class="card">
+
+    <div class="accordion mb-2" id="accordionExample1">
+      <!-- 1 -->
+      <div class="card mb-2">
         <div class="card-header p-0">
           <h2 class="mb-0">
-            <button class="col-md-12 btn text-primary p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="col-md-12 btn  p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <app-details-mvtstk-article></app-details-mvtstk-article>
             </button>
           </h2>
         </div>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1" style="max-height: 300px; overflow-y: scroll; ">
           <div class="card-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+
+          </div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="card mb-2">
+        <div class="card-header p-0">
+          <h2 class="mb-0">
+            <button class="col-md-12 btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+              <app-details-mvtstk-article></app-details-mvtstk-article>
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2" style="max-height: 300px; overflow-y: scroll; ">
+          <div class="card-body">
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+            <app-details-mvtstk></app-details-mvtstk>
+
           </div>
         </div>
       </div>
@@ -29,6 +54,8 @@
   <div class="row p-0 text-center mt-3 mb-3">
     <app-pagination></app-pagination>
   </div>
+
+
 
 
 </div>

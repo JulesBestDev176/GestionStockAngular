@@ -39,9 +39,9 @@
     </div>
   </div>
   <!--  Stock-->
-  <div class="col-md-4 border-right d-flex align-items-center ">
+  <div class="col-md-3 border-right d-flex align-items-center ">
     <div class="col-md-2 text-center">
-      <i class="fa-brands fa-dropbox"></i>
+      <i class="fa-brands fa-dropbox text-primary"></i>
     </div>
     <div class="col-md-10 text-center ">
       <div class="col mb-2">Stock actuel</div>
@@ -49,10 +49,50 @@
     </div>
   </div>
   <!--  Action-->
-  <div class="col-md-2 d-flex align-items-center justify-content-center text-center">
-    <div>
+  <div class="text-primary col-md-3 d-flex align-items-center justify-content-center text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div class="text-decoration">
       <i class="fa-brands fa-stack-overflow "></i><br/>
-      Modifier
+      Correction de stock
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h1 class="modal-title fs-5 col-md-11 text-center ms-3 " id="exampleModalLabel ">Correction de stock</h1>
+        <button type="button" class="btn-close col-md-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <div class="row align-items-center p-5">
+          <div class="col-md-4  justify-content-center">
+            <i class="fa-brands fa-stack-overflow fs-1  text-primary"></i><br/>
+          </div>
+          <div class="col-md-8">
+            <div class="row mb-3">
+              <input type="text" class="form-control" placeholder="Quantite">
+            </div>
+            <div class="row mb-3">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Type de correction</option>
+                <option value="1">Correction positive</option>
+                <option value="2">Correction negative</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <i class="fa-solid fa-ban"></i>&nbsp;
+          Annuler
+        </button>
+        <button type="button" class="btn btn-primary">
+          <i class="fa-solid fa-save"></i>&nbsp;
+          Enregistrer
+        </button>
+      </div>
     </div>
   </div>
 </div>
