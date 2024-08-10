@@ -1,18 +1,18 @@
 <div class="row">
-  <div class="col-md-4 p-0">
-    <button type="button" class="btn btn-warning police">
+  <div class="col-md-4 p-0" *ngIf="isImportVisible">
+    <button type="button" class="btn btn-warning police" >
       <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp;
       Importer
     </button>
   </div>
-  <div class="col-md-4 p-0">
-    <button type="button" class="btn btn-success police">
+  <div class="col-md-4 p-0" *ngIf="isExportVisible">
+    <button type="button" class="btn btn-success police" >
       <i class="fa-solid fa-cloud-arrow-down"></i>&nbsp;
       Exporter
     </button>
   </div>
-  <div class="col-md-4 p-0">
-    <button type="button"  class="btn btn-primary police" (click)="boutonNouveauClick()">
+  <div class="col-md-4 p-0" *ngIf="isNouveauVisible">
+    <button type="button"  class="btn btn-primary police" (click)="boutonNouveauClick()" >
       <i class="fa-solid fa-plus"></i>&nbsp;
       Nouveau
     </button>

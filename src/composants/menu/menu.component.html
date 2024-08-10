@@ -11,9 +11,9 @@
     <div id="collapse{{menu.id}}" [attr.aria-labelledby]="'menu' + menu.id" class="accordion-collapse collapse"
          data-bs-parent="#accordionExample">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let sousMenu of menu.sousMenus">
+        <li class="list-group-item" *ngFor="let sousMenu of menu.sousMenus" [ngClass]="{'text-white bg-primary': sousMenu.active, '':!sousMenu.active}">
           <i class="{{sousMenu.icon}}"></i> &nbsp;
-          <a href="javascript:void(0);" (click)="navigate(sousMenu.url)">{{ sousMenu.titre }}</a>
+          <a href="javascript:void(0);" (click)="navigate(sousMenu)" style="color: inherit;">{{ sousMenu.titre }}</a>
         </li>
       </ul>
     </div>

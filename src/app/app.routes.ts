@@ -40,7 +40,10 @@ export const routes: Routes = [
       },
       {
         path: 'nouvelarticles',
-        component: NouvelArticleComponent
+        component: NouvelArticleComponent,
+        data: {
+          direction: 'article'
+        }
       },
       {
         path: 'mvtstk',
@@ -56,15 +59,25 @@ export const routes: Routes = [
       },
       {
         path: 'nouveauclient',
-        component: NouvelCltFrsComponent
+        component: NouvelCltFrsComponent,
+        data: {
+          origin: 'client'
+        }
       },
       {
         path: 'commandesclients',
-        component: PageCmdCltFrsComponent
+        component: PageCmdCltFrsComponent,
+        data: {
+          origin: 'client'
+        }
       },
       {
         path: 'nouvellecommandeclt',
-        component: NouvelleCmdCltFrsComponent
+        component: NouvelleCmdCltFrsComponent,
+        data: {
+          origin: 'client',
+          direction: 'commandeclient'
+        }
       },
       {
         path: 'fournisseurs',
@@ -72,15 +85,25 @@ export const routes: Routes = [
       },
       {
         path: 'nouveaufournisseur',
-        component: NouvelCltFrsComponent
+        component: NouvelCltFrsComponent,
+        data: {
+          origin: 'fournisseur'
+        }
       },
       {
         path: 'nouvellecommandefrs',
-        component: NouvelleCmdCltFrsComponent
+        component: NouvelleCmdCltFrsComponent,
+        data: {
+          origin: 'fournisseur',
+          direction: 'commandefrs'
+        }
       },
       {
         path: 'commandesfournisseurs',
-        component: PageCmdCltFrsComponent
+        component: PageCmdCltFrsComponent,
+        data: {
+           origin: 'fournisseur'
+        }
       },
       {
         path: 'categories',
@@ -88,7 +111,10 @@ export const routes: Routes = [
       },
       {
         path: 'nouvellecategorie',
-        component: NouvelleCategorieComponent
+        component: NouvelleCategorieComponent,
+        data: {
+          direction: 'categorie'
+        }
       },
       {
         path: 'utilisateurs',
@@ -96,7 +122,10 @@ export const routes: Routes = [
       },
       {
         path: 'nouvelutilisateur',
-        component: NouvelCltFrsComponent
+        component: NouvelCltFrsComponent,
+        data: {
+          origin: 'utilisateur'
+        }
       },
       {
         path: 'profils',
@@ -104,7 +133,10 @@ export const routes: Routes = [
       },
       {
         path: 'changermdp',
-        component: ChangerMotDePasseComponent
+        component: ChangerMotDePasseComponent,
+        data: {
+          direction: 'profil'
+        }
       }
     ]
   }

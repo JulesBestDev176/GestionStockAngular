@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Menu} from "./menu";
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgClass
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -116,6 +117,7 @@ export class MenuComponent implements OnInit {
     }
 
   ];
+  private lastSelectedMenu : Menu | undefined;
 
   constructor(
     private router: Router
@@ -125,7 +127,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigate(url?: string ) : void {
-    this.router.navigate([url]);
+  navigate(menu: Menu ) : void {
+    if(this.lastSelectedMenu) {
+      this.lastSelectedMenu.active = false;
+    }
+    menu.active = true;
+    this.router.navigate([menu.url]);
+    this.lastSelectedMenu = menu;
   }
 }

@@ -1,10 +1,11 @@
 <div class="col">
   <div class="row p-3 ">
     <div class="col-md-7 d-flex align-items-center p-0 ">
-      <h4>Commandes clients/fournisseurs</h4>
+      <h4>Commandes {{origin}}</h4>
     </div>
     <div class="col-md-5 text-end pe-3 pt-1">
       <app-bouton-action
+        [isImportVisible]="false"
         (clickEvent)="nouvelleCommande()"
       ></app-bouton-action>
     </div>
