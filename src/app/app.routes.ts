@@ -11,6 +11,8 @@ import {PageFournisseurComponent} from "../pages/fournisseurs/page-fournisseur/p
 import {NouvelCltFrsComponent} from "../composants/nouvel-clt-frs/nouvel-clt-frs.component";
 import {PageCmdCltFrsComponent} from "../pages/page-cmd-clt-frs/page-cmd-clt-frs.component";
 import {NouvelleCmdCltFrsComponent} from "../composants/nouvelle-cmd-clt-frs/nouvelle-cmd-clt-frs.component";
+import {PageCategoriesComponent} from "../pages/categorie/page-categories/page-categories.component";
+import {NouvelleCategorieComponent} from "../pages/categorie/nouvelle-categorie/nouvelle-categorie.component";
 
 export const routes: Routes = [
   {
@@ -76,6 +78,14 @@ export const routes: Routes = [
       {
         path: 'commandesfournisseurs',
         component: PageCmdCltFrsComponent
+      },
+      {
+        path: 'categories',
+        component: PageCategoriesComponent
+      },
+      {
+        path: 'nouvellecategorie',
+        component: NouvelleCategorieComponent
       }
     ]
   }
