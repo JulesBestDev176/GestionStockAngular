@@ -8,11 +8,14 @@ import {NouvelArticleComponent} from "../pages/articles/nouvel-article/nouvel-ar
 import {PageMvtstkComponent} from "../pages/page-mvtstk/page-mvtstk.component";
 import {PageClientComponent} from "../pages/client/page-client/page-client.component";
 import {PageFournisseurComponent} from "../pages/fournisseurs/page-fournisseur/page-fournisseur.component";
-import {NouvelCltFrsComponent} from "../composants/nouvel-clt-frs/nouvel-clt-frs.component";
+import {NouvelCltFrsComponent} from "../composants/nouvel-clt-frs-utilisateur/nouvel-clt-frs.component";
 import {PageCmdCltFrsComponent} from "../pages/page-cmd-clt-frs/page-cmd-clt-frs.component";
 import {NouvelleCmdCltFrsComponent} from "../composants/nouvelle-cmd-clt-frs/nouvelle-cmd-clt-frs.component";
 import {PageCategoriesComponent} from "../pages/categorie/page-categories/page-categories.component";
 import {NouvelleCategorieComponent} from "../pages/categorie/nouvelle-categorie/nouvelle-categorie.component";
+import {PageUtilisateurComponent} from "../pages/utilisateur/page-utilisateur/page-utilisateur.component";
+import {PageProfilComponent} from "../pages/profil/page-profil/page-profil.component";
+import {ChangerMotDePasseComponent} from "../pages/profil/changer-mot-de-passe/changer-mot-de-passe.component";
 
 export const routes: Routes = [
   {
@@ -86,6 +89,22 @@ export const routes: Routes = [
       {
         path: 'nouvellecategorie',
         component: NouvelleCategorieComponent
+      },
+      {
+        path: 'utilisateurs',
+        component: PageUtilisateurComponent
+      },
+      {
+        path: 'nouvelutilisateur',
+        component: NouvelCltFrsComponent
+      },
+      {
+        path: 'profils',
+        component: PageProfilComponent
+      },
+      {
+        path: 'changermdp',
+        component: ChangerMotDePasseComponent
       }
     ]
   }
