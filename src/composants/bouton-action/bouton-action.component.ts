@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {RouterLink} from "@angular/router";
 
 @Component({
@@ -10,6 +10,14 @@ import {RouterLink} from "@angular/router";
   templateUrl: './bouton-action.component.html',
   styleUrl: './bouton-action.component.css'
 })
-export class BoutonActionComponent {
+export class BoutonActionComponent implements OnInit {
+  @Output()
+  clickEvent = new EventEmitter()
+  ngOnInit(): void {
+  }
+
+  boutonNouveauClick(): void {
+    this.clickEvent.emit();
+  }
 
 }

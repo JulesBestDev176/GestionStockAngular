@@ -4,7 +4,9 @@
       <h4>Liste des fournisseurs</h4>
     </div>
     <div class="col-md-5 text-end pe-3 pt-1">
-      <app-bouton-action></app-bouton-action>
+      <app-bouton-action
+      (clickEvent)="nouveauFournisseur()"
+      ></app-bouton-action>
     </div>
   </div>
   <div class="card p-3">

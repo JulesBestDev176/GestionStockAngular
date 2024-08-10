@@ -1,11 +1,11 @@
 <div class="col">
   <div class="row p-3 ">
     <div class="col-md-7 d-flex align-items-center p-0 ">
-      <h4>Mouvement des stocks</h4>
+      <h4>Commandes clients/fournisseurs</h4>
     </div>
     <div class="col-md-5 text-end pe-3 pt-1">
       <app-bouton-action
-      (clickEvent)="nouveauMvt()"
+        (clickEvent)="nouvelleCommande()"
       ></app-bouton-action>
     </div>
   </div>
@@ -17,17 +17,27 @@
         <div class="card-header p-0">
           <h2 class="mb-0">
             <button class="col-md-12 btn  p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <app-details-mvtstk-article></app-details-mvtstk-article>
+              <app-detail-cmd-clt-frs></app-detail-cmd-clt-frs>
             </button>
           </h2>
         </div>
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1" style="max-height: 300px; overflow-y: scroll; ">
           <div class="card-body">
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
+            <div class="text-primary mb-2">Details de la commande</div>
+            <app-detail-cmd></app-detail-cmd>
+            <app-detail-cmd></app-detail-cmd>
+            <app-detail-cmd></app-detail-cmd>
+          </div>
 
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-6 text-start">
+              <h6>3 articles commandés</h6>
+            </div>
+            <div class="col-md-6 text-end">
+              <h6>Total de la commande : 221,4</h6>
+            </div>
           </div>
         </div>
       </div>
@@ -36,20 +46,31 @@
         <div class="card-header p-0">
           <h2 class="mb-0">
             <button class="col-md-12 btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-              <app-details-mvtstk-article></app-details-mvtstk-article>
+              <app-detail-cmd-clt-frs></app-detail-cmd-clt-frs>
             </button>
           </h2>
         </div>
         <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2" style="max-height: 300px; overflow-y: scroll; ">
           <div class="card-body">
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
-            <app-details-mvtstk></app-details-mvtstk>
+            <div class="text-primary mb-2">Details de la commande</div>
+            <app-detail-cmd></app-detail-cmd>
+            <app-detail-cmd></app-detail-cmd>
+            <app-detail-cmd></app-detail-cmd>
 
           </div>
         </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-6 text-start">
+              <h6>3 articles commandés</h6>
+            </div>
+            <div class="col-md-6 text-end">
+              <h6>Total de la commande : 221,4</h6>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
   </div>

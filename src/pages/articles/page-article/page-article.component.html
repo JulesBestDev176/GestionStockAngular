@@ -4,7 +4,9 @@
       <h4>Liste des articles</h4>
     </div>
     <div class="col-md-5 text-end pe-3 pt-1">
-      <app-bouton-action></app-bouton-action>
+      <app-bouton-action
+        (clickEvent)="nouveauArticle()"
+      ></app-bouton-action>
     </div>
   </div>
   <div class="row p-0">

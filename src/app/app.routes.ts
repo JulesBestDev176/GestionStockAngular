@@ -8,6 +8,9 @@ import {NouvelArticleComponent} from "../pages/articles/nouvel-article/nouvel-ar
 import {PageMvtstkComponent} from "../pages/page-mvtstk/page-mvtstk.component";
 import {PageClientComponent} from "../pages/client/page-client/page-client.component";
 import {PageFournisseurComponent} from "../pages/fournisseurs/page-fournisseur/page-fournisseur.component";
+import {NouvelCltFrsComponent} from "../composants/nouvel-clt-frs/nouvel-clt-frs.component";
+import {PageCmdCltFrsComponent} from "../pages/page-cmd-clt-frs/page-cmd-clt-frs.component";
+import {NouvelleCmdCltFrsComponent} from "../composants/nouvelle-cmd-clt-frs/nouvelle-cmd-clt-frs.component";
 
 export const routes: Routes = [
   {
@@ -39,12 +42,40 @@ export const routes: Routes = [
         component: PageMvtstkComponent
       },
       {
+        path: 'nouveaumvt',
+        component: PageMvtstkComponent
+      },
+      {
         path: 'clients',
         component: PageClientComponent
       },
       {
+        path: 'nouveauclient',
+        component: NouvelCltFrsComponent
+      },
+      {
+        path: 'commandesclients',
+        component: PageCmdCltFrsComponent
+      },
+      {
+        path: 'nouvellecommandeclt',
+        component: NouvelleCmdCltFrsComponent
+      },
+      {
         path: 'fournisseurs',
         component: PageFournisseurComponent
+      },
+      {
+        path: 'nouveaufournisseur',
+        component: NouvelCltFrsComponent
+      },
+      {
+        path: 'nouvellecommandefrs',
+        component: NouvelleCmdCltFrsComponent
+      },
+      {
+        path: 'commandesfournisseurs',
+        component: PageCmdCltFrsComponent
       }
     ]
   }
