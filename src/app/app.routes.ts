@@ -16,6 +16,7 @@ import {NouvelleCategorieComponent} from "../pages/categorie/nouvelle-categorie/
 import {PageUtilisateurComponent} from "../pages/utilisateur/page-utilisateur/page-utilisateur.component";
 import {PageProfilComponent} from "../pages/profil/page-profil/page-profil.component";
 import {ChangerMotDePasseComponent} from "../pages/profil/changer-mot-de-passe/changer-mot-de-passe.component";
+import {ApplicationGuardService} from "../services/guard/application-guard.service";
 
 export const routes: Routes = [
   {
@@ -29,37 +30,45 @@ export const routes: Routes = [
   {
     path: '',
     component: PageDashboardComponent,
+    canActivate: [ApplicationGuardService],
     children: [
       {
         path: 'statistiques',
-        component: PageStatistiquesComponent
+        component: PageStatistiquesComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'articles',
-        component: PageArticleComponent
+        component: PageArticleComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'nouvelarticles',
         component: NouvelArticleComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           direction: 'article'
         }
       },
       {
         path: 'mvtstk',
-        component: PageMvtstkComponent
+        component: PageMvtstkComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'nouveaumvt',
-        component: PageMvtstkComponent
+        component: PageMvtstkComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'clients',
-        component: PageClientComponent
+        component: PageClientComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'nouveauclient',
         component: NouvelCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -67,6 +76,7 @@ export const routes: Routes = [
       {
         path: 'commandesclients',
         component: PageCmdCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'client'
         }
@@ -74,6 +84,7 @@ export const routes: Routes = [
       {
         path: 'nouvellecommandeclt',
         component: NouvelleCmdCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'client',
           direction: 'commandeclient'
@@ -81,11 +92,13 @@ export const routes: Routes = [
       },
       {
         path: 'fournisseurs',
+        canActivate: [ApplicationGuardService],
         component: PageFournisseurComponent
       },
       {
         path: 'nouveaufournisseur',
         component: NouvelCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur'
         }
@@ -93,6 +106,7 @@ export const routes: Routes = [
       {
         path: 'nouvellecommandefrs',
         component: NouvelleCmdCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'fournisseur',
           direction: 'commandefrs'
@@ -100,6 +114,7 @@ export const routes: Routes = [
       },
       {
         path: 'commandesfournisseurs',
+        canActivate: [ApplicationGuardService],
         component: PageCmdCltFrsComponent,
         data: {
            origin: 'fournisseur'
@@ -107,32 +122,38 @@ export const routes: Routes = [
       },
       {
         path: 'categories',
-        component: PageCategoriesComponent
+        component: PageCategoriesComponent,
+        canActivate: [ApplicationGuardService],
       },
       {
         path: 'nouvellecategorie',
         component: NouvelleCategorieComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           direction: 'categorie'
         }
       },
       {
         path: 'utilisateurs',
+        canActivate: [ApplicationGuardService],
         component: PageUtilisateurComponent
       },
       {
         path: 'nouvelutilisateur',
         component: NouvelCltFrsComponent,
+        canActivate: [ApplicationGuardService],
         data: {
           origin: 'utilisateur'
         }
       },
       {
         path: 'profils',
+        canActivate: [ApplicationGuardService],
         component: PageProfilComponent
       },
       {
         path: 'changermdp',
+        canActivate: [ApplicationGuardService],
         component: ChangerMotDePasseComponent,
         data: {
           direction: 'profil'

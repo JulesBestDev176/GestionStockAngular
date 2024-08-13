@@ -6,7 +6,15 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "start:local": "npm run gs-api && ng serve -- --proxyConfig=proxy.conf.json",
+    "gs-api": "npm run gs-api:create-dist && npm run gs-api:download && npm run gs-api:extract && npm run gs-api:swagger-gen",
+    "gs-api:create-dist": "mkdir tools\\swagger\\dist tools\\swagger\\src",
+    "gs-api:download": "copy C:\\Users\\julesBest\\Documents\\INFORMATIQUE\\VACANCE\\ANGULAR\\outils\\gestiondestock-0.0.1-SNAPSHOT.jar tools\\swagger\\dist && copy C:\\Users\\julesBest\\Documents\\INFORMATIQUE\\VACANCE\\ANGULAR\\outils\\swagger.json tools\\swagger\\src",
+    "gs-api:extract": "node ./tools/swagger/src/swagger.json 0.0.1-SNAPSHOT",
+    "gs-api:swagger-gen": "npx ng-swagger-gen -i ./tools/swagger/src/swagger.json -o src/gs-api/src"
   },
   "private": true,
   "dependencies": {
