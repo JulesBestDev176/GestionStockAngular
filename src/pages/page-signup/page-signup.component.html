@@ -4,84 +4,115 @@
       <h3>S'inscrire</h3>
     </div>
     <div class="card-body">
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Nom"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Code fiscal"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="email"
-          class="form-control form-control-sm"
-          placeholder="Email"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Adresse 1"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Adresse 2"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Ville"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Code postal"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Pays"
-        />
-      </div>
-      <div class="mb-2">
-        <input
-          type="password"
-          class="form-control form-control-sm"
-          placeholder="Mot de passe"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="password"
-          class="form-control form-control-sm"
-          placeholder="Confirmer mot de passe"
-        />
-      </div>
-      <div class="d-flex justify-content-between">
-        <a [routerLink]="['/login']" class="btn btn-link btn-sm">
-          Se connecter
-        </a>
-        <button type="submit" class="btn btn-primary btn-sm">
-          <i class="fa-solid fa-check"></i> S'inscrire
-        </button>
-      </div>
+      <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Nom"
+            id="nom"
+            formControlName="nom"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Code fiscal"
+            id="code_fiscale"
+            formControlName="code_fiscale"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="email"
+            class="form-control form-control-sm"
+            placeholder="Email"
+            id="email"
+            formControlName="email"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Adresse 1"
+            id="adresse1"
+            formControlName="adresse1"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Adresse 2"
+            id="adresse2"
+            formControlName="adresse2"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Ville"
+            id="ville"
+            formControlName="ville"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Code postal"
+            id="code_postal"
+            formControlName="code_postal"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Pays"
+            id="pays"
+            formControlName="pays"
+            required="required"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="password"
+            class="form-control form-control-sm"
+            placeholder="Mot de passe"
+            id="password"
+            formControlName="password"
+            required="required"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control form-control-sm"
+            placeholder="Confirmer mot de passe"
+            id="confirmPassword"
+            required="required"
+          />
+        </div>
+        <div class="d-flex justify-content-between">
+          <a [routerLink]="['/login']" class="btn btn-link btn-sm">
+            Se connecter
+          </a>
+          <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-check"></i> S'inscrire
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

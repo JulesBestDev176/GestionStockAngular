@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: '',
     component: PageDashboardComponent,
-    canActivate: [ApplicationGuardService],
+    //canActivate: [ApplicationGuardService],
     children: [
       {
         path: 'statistiques',
@@ -116,7 +116,6 @@ export const routes: Routes = [
         path: 'commandesfournisseurs',
         canActivate: [ApplicationGuardService],
         component: PageCmdCltFrsComponent,
-        canActivate : [ApplicationGuardService],
         data: {
            origin: 'fournisseur'
         }
@@ -154,7 +153,6 @@ export const routes: Routes = [
       },
       {
         path: 'changermdp',
-        canActivate: [ApplicationGuardService],
         component: ChangerMotDePasseComponent,
         canActivate : [ApplicationGuardService],
         data: {
