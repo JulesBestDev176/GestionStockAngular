@@ -38,7 +38,6 @@ export class PageLoginComponent {
         },
         error: (err) => {
           console.error("Erreur lors de la connexion", err);
-          this.errorMsg = "Login ou mot de passe incorrect"
           this.errorMsg = this.authService.errorMsg;
         }
       });

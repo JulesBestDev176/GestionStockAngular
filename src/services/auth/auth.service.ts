@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
   private baseUrl: string = "http://localhost:3000/utilisateur";
-  errorMsg =''
+  errorMsg ='';
   constructor(
     private http: HttpClient,
     private router: Router
@@ -25,6 +25,7 @@ export class AuthService {
       map((newUser:UserModel)=>{
           const token=btoa(`${newUser.email}${newUser.password}`);
           return { token, user: newUser} as AuthResponse;
+
       })
     )
   }

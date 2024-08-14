@@ -3,16 +3,19 @@ import {Router, RouterModule} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth/auth.service";
 import {UserModel} from "../../model/user.model";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-page-signup',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, NgIf],
   templateUrl: './page-signup.component.html',
   styleUrl: './page-signup.component.css'
 })
 export class PageSignupComponent {
   regForm!: FormGroup;
+  errorMsg ='';
+
   constructor(
     private authService: AuthService,
     private router: Router,
