@@ -5,10 +5,10 @@
         <img src="assets/product.png" class="rounded-circle" alt="profil" width="100px" height="100px">
       </div>
       <div class="col-md-12">
-        <h5>Nom Prenom</h5>
+        <h5>{{ user?.nom }}</h5>
       </div>
       <div class="col-md-12 mb-3">
-        <small class="text-muted form-text">Adresse, Ville, 12345</small>
+        <small class="text-muted form-text">{{ user?.adresse1 }}, {{ user?.adresse2}}, {{ user?.ville }}, {{ user?.code_postal }}</small>
       </div>
     </div>
   </div>
@@ -16,16 +16,17 @@
     <div class="row p-0">
       <h5>Changer le mot de passe</h5>
     </div>
-    <div class="row p-2">
-      <input type="text" class="form-control form-control-sm" placeholder="Ancien mot de passe">
-    </div>
-    <div class="row p-2">
-      <input type="text" class="form-control form-control-sm" placeholder="Nouveau mot de passe">
-    </div>
-    <div class="row p-2 mb-3">
-      <input type="text" class="form-control form-control-sm" placeholder="Repeter mot de passe">
-    </div>
-   <app-bouton-action-annuler></app-bouton-action-annuler>
-
+    <form [formGroup]="changerMotDePasseForm" (ngSubmit)="changerMotDePasse()">
+      <div class="row p-2">
+        <input type="text" class="form-control form-control-sm" placeholder="Ancien mot de passe" formControlName="ancienMotDePasse">
+      </div>
+      <div class="row p-2">
+        <input type="password" class="form-control form-control-sm" placeholder="Nouveau mot de passe" formControlName="nouveauMotDePasse">
+      </div>
+      <div class="row p-2 mb-3">
+        <input type="password" class="form-control form-control-sm" placeholder="Repeter mot de passe" formControlName="confirmeMotDePasse">
+      </div>
+      <app-bouton-action-annuler></app-bouton-action-annuler>
+    </form>
   </div>
 </div>

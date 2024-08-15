@@ -42,7 +42,5 @@ export class BoutonActionAnnulerComponent implements OnInit {
     }
   }
 
-  saveClick() {
 
-  }
 }

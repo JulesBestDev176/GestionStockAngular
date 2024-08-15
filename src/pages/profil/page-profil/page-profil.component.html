@@ -5,10 +5,10 @@
         <img src="assets/product.png" class="rounded-circle" alt="profil" width="100px" height="100px">
       </div>
       <div class="col-md-12">
-        <h5>Nom Prenom</h5>
+        <h5>{{user?.nom}}</h5>
       </div>
       <div class="col-md-12 mb-3">
-        <small class="text-muted form-text">Adresse, Ville, 12345</small>
+        <small class="text-muted form-text">{{ user?.adresse1 }}, {{ user?.adresse2}}, {{ user?.ville }}, {{ user?.code_postal }}</small>
       </div>
     </div>
     <div class="row mt-3 mb-3">
@@ -30,7 +30,7 @@
         <h5>Nom complet</h5>
       </div>
       <div class="col">
-        <small class="text-muted form-text">Nom Prenom</small>
+        <small class="text-muted form-text">{{ user?.nom }}</small>
       </div>
       <hr>
     </div>
@@ -40,7 +40,7 @@
         <h5>Email</h5>
       </div>
       <div class="col">
-        <small class="text-muted form-text">email&#64;mail.com</small>
+        <small class="text-muted form-text">{{user?.email}}</small>
       </div>
       <hr>
     </div>
@@ -49,7 +49,7 @@
         <h5>Telephone</h5>
       </div>
       <div class="col">
-        <small class="text-muted form-text">0011 22 33 44 55</small>
+        <small class="text-muted form-text">{{user?.telephone}}</small>
       </div>
       <hr>
     </div>
@@ -58,7 +58,7 @@
         <h5>Adresse</h5>
       </div>
       <div class="col">
-        <small class="text-muted form-text">Adresse, Ville, 12345</small>
+        <small class="text-muted form-text">{{ user?.adresse1 }}, {{ user?.adresse2}}, {{ user?.ville }}, {{ user?.code_postal }}</small>
       </div>
       <hr>
     </div>
@@ -67,7 +67,7 @@
         <h5>Entreprise</h5>
       </div>
       <div class="col">
-        <small class="text-muted form-text">Nom entreprise</small>
+        <small class="text-muted form-text">{{user?.nom}}</small>
       </div>
       <hr>
     </div>

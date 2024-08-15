@@ -8,5 +8,7 @@ export class UserModel {
   ville!: string;
   code_postal!: string;
   pays!: string;
+  description!: string;
+  telephone!: string;
   password!: string;
 }

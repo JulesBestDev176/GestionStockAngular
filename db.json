@@ -1,19 +1,21 @@
 {
   "utilisateur": [
     {
-      "id": "1",
-      "nom": "Fall",
+      "id": "330a",
+      "nom": "isi",
       "code_fiscale": "A1234",
-      "email": "jules@gmail.com",
-      "adresse1": "keur massar",
-      "adresse2": "yeumbeul nord",
+      "email": "souleymanefall@gmail.com",
+      "adresse1": "yeumbeul",
+      "adresse2": "comico",
       "ville": "dakar",
       "code_postal": "17000",
-      "pays": "Senegal",
-      "password": "okok"
+      "pays": "senegal",
+      "description": "Institut Superieur d'Informatique",
+      "telephone": "773736900",
+      "password": "123456"
     },
     {
-      "id": "2",
+      "id": "d135",
       "nom": "souleymane fall",
       "code_fiscale": "1234",
       "email": "souleymane@gmail.com",
@@ -22,19 +24,23 @@
       "ville": "dakar",
       "code_postal": "17000",
       "pays": "senegal",
+      "description": "blabla",
+      "telephone": "777151061",
       "password": "okok"
     },
     {
-      "id": "06aa",
-      "nom": "thierno lo",
-      "code_fiscale": "1235",
-      "email": "lo@gmail.com",
-      "adresse1": "yeumbeul",
-      "adresse2": "marin",
+      "id": "5602",
+      "nom": "logitech",
+      "code_fiscale": "B52",
+      "email": "logistech@gmail.com",
+      "adresse1": "medina",
+      "adresse2": "gibraltar",
       "ville": "dakar",
-      "code_postal": "17000",
+      "code_postal": "21000",
       "pays": "senegal",
-      "password": "okok"
+      "description": "logistique",
+      "telephone": "777777777",
+      "password": "Passer123"
     }
   ]
 }

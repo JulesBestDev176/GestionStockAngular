@@ -10,7 +10,7 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, NgIf],
   templateUrl: './page-signup.component.html',
-  styleUrl: './page-signup.component.css'
+  styleUrls: ['./page-signup.component.css']
 })
 export class PageSignupComponent {
   regForm!: FormGroup;
@@ -22,7 +22,6 @@ export class PageSignupComponent {
     private formBuilder: FormBuilder
   ){
     this.regForm = this.formBuilder.group({
-
       nom: ['', Validators.required],
       code_fiscale: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,8 +30,9 @@ export class PageSignupComponent {
       ville: ['', Validators.required],
       code_postal: ['', Validators.required],
       pays: ['', Validators.required],
-      password: ['', [Validators.required, Validators.max(20), Validators.min(4)]]
-
+      description: ['', Validators.required],
+      telephone: ['', Validators.required],
+      password: "okok"
     })
   }
 
@@ -43,7 +43,6 @@ export class PageSignupComponent {
         next: (res) => {
           console.log("Utilisateur inscris avec succés", res);
           this.authService.storeToken(res.token);
-          this.router.navigate(['/login']);
         },
         error: (err) => {
           console.error("Erreur lors de l'inscription", err);
