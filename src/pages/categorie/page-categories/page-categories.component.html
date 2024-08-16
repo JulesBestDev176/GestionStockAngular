@@ -10,36 +10,28 @@
     </div>
   </div>
   <div class="row p-3">
-    <div class="card p-3" style="height:300px; overflow-y: scroll; ">
-      <div class="card col d-flex flex-row p-2 mb-2">
-        <div class="col-md-4 border-right ps-3">
-          PRD-ALIM
+    <div class="card p-3" style="height:300px; overflow-y: scroll; " *ngIf="listCategories.length > 0">
+      <div class="card col d-flex flex-row p-2 mb-2 height40 align-items-center"  *ngFor="let category of listCategories">
+        <div class="col-md-3 border-right ps-3">
+          {{category.code}}
         </div>
-        <div class="col-md-8 ps-3"> Produits alimentaires</div>
-      </div>
-      <div class="card col d-flex flex-row p-2 mb-2">
-        <div class="col-md-4 border-right ps-3">
-          PRD-ALIM
+        <div class="col-md-3 border-right ps-3">{{category.designation}}</div>
+        <div class="col ps-3  ">
+          <div class="col  d-flex justify-content-around ">
+            <button type="button" class="btn btn-link  p-0 text-warning text-center" (click)="modifierCategory(category.id)">
+              <i class="fa-solid fa-pencil"></i><br/>
+              Modifier
+            </button>
+            <button type="button" class="btn btn-link  p-0 text-danger text-center">
+              <i class="fa-solid fa-trash-can"></i><br/>
+              Supprimer
+            </button>
+            <button  type="button" class="btn btn-link p-0 text-primary">
+              <i class="fa-regular fa-rectangle-list"></i><br/>
+              Details
+            </button>
+          </div>
         </div>
-        <div class="col-md-8 ps-3"> Produits alimentaires</div>
-      </div>
-      <div class="card col d-flex flex-row p-2 mb-2">
-        <div class="col-md-4 border-right ps-3">
-          PRD-ALIM
-        </div>
-        <div class="col-md-8 ps-3"> Produits alimentaires</div>
-      </div>
-      <div class="card col d-flex flex-row p-2 mb-2">
-        <div class="col-md-4 border-right ps-3">
-          PRD-ALIM
-        </div>
-        <div class="col-md-8 ps-3"> Produits alimentaires</div>
-      </div>
-      <div class="card col d-flex flex-row p-2 mb-2">
-        <div class="col-md-4 border-right ps-3">
-          PRD-ALIM
-        </div>
-        <div class="col-md-8 ps-3"> Produits alimentaires</div>
       </div>
 
     </div>

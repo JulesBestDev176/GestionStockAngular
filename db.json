@@ -42,5 +42,22 @@
       "telephone": "777777777",
       "password": "Passer123"
     }
+  ],
+  "category": [
+    {
+      "id": "a8fc",
+      "code": "PR_ALM",
+      "designation": "alimentaire"
+    },
+    {
+      "id": "62ba",
+      "code": "PR_SOIN",
+      "designation": "Soin 2"
+    },
+    {
+      "id": "a8fc",
+      "code": "alimentation",
+      "designation": "alimentaire"
+    }
   ]
 }

@@ -134,6 +134,14 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'nouvellecategorie/:idCategory',
+        component: NouvelleCategorieComponent,
+        canActivate : [ApplicationGuardService],
+        data: {
+          direction: 'categorie'
+        }
+      },
+      {
         path: 'utilisateurs',
         component: PageUtilisateurComponent,
         canActivate : [ApplicationGuardService]

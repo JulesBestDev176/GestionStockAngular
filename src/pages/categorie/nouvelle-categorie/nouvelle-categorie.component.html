@@ -2,13 +2,21 @@
   <h5>Nouvelle categorie</h5>
 </div>
 <div class="card p-3 mb-3" style="height: 200px;">
-  <div class="col-md-8 mb-3">
-    <input type="text" class="form-control" placeholder="Code categorie">
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length > 0">
+    <div *ngFor="let msg of errorMsg">
+      {{ msg }}
+    </div>
   </div>
-  <div class="col-md-8">
-    <input type="text" class="form-control" placeholder="Description">
-  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="col-md-8 mb-3">
+      <input type="text" class="form-control" placeholder="Code categorie" name="codeCat" [(ngModel)]="categoryDto.code">
+    </div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" placeholder="Description" name="designationCat" [(ngModel)]="categoryDto.designation">
+    </div>
+    <app-bouton-action-annuler></app-bouton-action-annuler>
+  </form>
 
 </div>
 
-<app-bouton-action-annuler></app-bouton-action-annuler>
+

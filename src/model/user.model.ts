@@ -1,3 +1,6 @@
+import {EntrepriseDto} from "../model/entreprise-dto";
+import {RolesDto} from "../model/roles-dto";
+
 export class UserModel {
   id!: string;
   nom!: string;
@@ -11,4 +14,7 @@ export class UserModel {
   description!: string;
   telephone!: string;
   password!: string;
+  photo!: string;
+  entreprise!: EntrepriseDto;
+  roles!: Array<RolesDto>;
 }
