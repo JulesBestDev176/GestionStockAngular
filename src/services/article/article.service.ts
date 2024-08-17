@@ -9,6 +9,7 @@ import {StrictHttpResponse} from "../strict-http-response";
 import {LigneCommandeClientDto} from "../../model/ligne-commande-client-dto";
 import {LigneCommandeFournisseurDto} from "../../model/ligne-commande-fournisseur-dto";
 import {LigneVenteDto} from "../../model/ligne-vente-dto";
+import {CategoryService} from "../../services/category/category.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class ArticleService implements OnInit{
   constructor(
     private authService: AuthService,
     private base: BaseService,
-    private http: HttpClient
+    private http: HttpClient,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,17 @@ export class ArticleService implements OnInit{
   findArticleById(id?: string): Observable<ArticleDto> {
     if(id) {
       return this.findById(id);
+    }
+    return of();
+  }
+
+  findCatArticle(id: string) {
+    return !!this.findAllArticleByIdCategory(id);
+  }
+
+  deleteArt(id: string | undefined) : Observable<any> {
+    if(id) {
+      return this.delete(id);
     }
     return of();
   }
@@ -81,20 +94,21 @@ export class ArticleService implements OnInit{
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+
     let req = new HttpRequest<any>(
       'GET',
-      this.base._rootUrl + this.baseUrl,
+      `${this.base._rootUrl}${this.baseUrl}`,
       __body,
       {
         headers: __headers,
         params: __params,
-        responseType: 'json'
-      });
-
+        responseType: 'json' as 'json'
+      }
+    );
     return this.http.request<any>(req).pipe(
-      filter(_r => _r instanceof HttpResponse),
-      map((_r) => {
-        return _r as StrictHttpResponse<Array<ArticleDto>>;
+      filter((response): response is HttpResponse<any> => response instanceof HttpResponse),
+      map((response: HttpResponse<any>): StrictHttpResponse<Array<ArticleDto>> => {
+        return response as StrictHttpResponse<Array<ArticleDto>>;
       })
     );
   }
@@ -166,14 +180,14 @@ export class ArticleService implements OnInit{
   }
 
 
-  findAllArticleByIdCategoryResponse(idCategory: string): Observable<StrictHttpResponse<Array<ArticleDto>>> {
+  findAllArticleByIdCategoryResponse(idArticle: string): Observable<StrictHttpResponse<Array<ArticleDto>>> {
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      `${this.base._rootUrl}${this.baseUrl}/${idCategory}`,
+      `${this.base._rootUrl}${this.baseUrl}/${idArticle}`,
       __body,
       {
         headers: __headers,
@@ -189,8 +203,8 @@ export class ArticleService implements OnInit{
     );
   }
 
-  findAllArticleByIdCategory(idCategory: string): Observable<Array<ArticleDto>> {
-    return this.findAllArticleByIdCategoryResponse(idCategory).pipe(
+  findAllArticleByIdCategory(idArticle: string): Observable<Array<ArticleDto>> {
+    return this.findAllArticleByIdCategoryResponse(idArticle).pipe(
       map(_r => _r.body as Array<ArticleDto>)
     );
   }

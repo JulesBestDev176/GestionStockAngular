@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {CategoryDto} from "../../../model/category-dto";
 import {CategoryService} from "../../../services/category/category.service";
 import {NgForOf, NgIf} from "@angular/common";
+import {ArticleService} from "../../../services/article/article.service";
 
 @Component({
   selector: 'app-page-categories',
@@ -24,7 +25,8 @@ export class PageCategoriesComponent implements OnInit {
   errorsMsg= '';
   constructor(
     private router: Router,
-    private categoryService : CategoryService // Assuming CategoryService is a service to fetch categories
+    private categoryService : CategoryService ,
+    private articleService : ArticleService
   ) {}
   nouvelleCategorie() {
     this.router.navigate(['nouvellecategorie']);
@@ -46,7 +48,14 @@ export class PageCategoriesComponent implements OnInit {
   }
 
   confirmerEtSupprimerCat() {
+
     if (this.selectedCategoryIdToDelete != "") {
+      if(this.selectedCategoryIdToDelete) {
+        if(this.articleService.findCatArticle(this.selectedCategoryIdToDelete)) {
+          this.errorsMsg = "Impossible de supprimer cette categorie qui est déjà utilisée";
+          return;
+        }
+      }
       this.categoryService.deleteCat(this.selectedCategoryIdToDelete)
         .subscribe({
           next: () => this.findAllCategories(),

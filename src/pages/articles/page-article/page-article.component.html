@@ -8,9 +8,15 @@
         (clickEvent)="nouveauArticle()"
       ></app-bouton-action>
     </div>
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
   </div>
   <div class="row p-0">
-       <app-detail-article *ngFor="let article of listArticle" [articleDto]="article"></app-detail-article>
+       <app-detail-article
+         *ngFor="let article of listArticle" [articleDto]="article"
+         (suppressionResult)="handleSuppression($event)"
+       ></app-detail-article>
   </div>
   <div class="row p-0 text-center mt-3 mb-3">
     <app-pagination></app-pagination>

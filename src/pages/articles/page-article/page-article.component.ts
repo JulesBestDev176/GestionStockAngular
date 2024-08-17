@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {ArticleDto} from "../../../model/article-dto";
 import {ArticleService} from "../../../services/article/article.service";
 import {Observable} from "rxjs";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-page-article',
@@ -15,13 +15,15 @@ import {NgForOf} from "@angular/common";
     DetailArticleComponent,
     PaginationComponent,
     BoutonActionComponent,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './page-article.component.html',
   styleUrl: './page-article.component.css'
 })
 export class PageArticleComponent implements OnInit {
   listArticle: Array<ArticleDto> = [];
+  errorMsg ='';
 
 
   constructor(
@@ -33,9 +35,21 @@ export class PageArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.findListArticle()
+  }
+
+  findListArticle(){
     this.articleService.findAllArticle()
       .subscribe(art => {
         this.listArticle = art;
       })
+  }
+
+  handleSuppression(event: any) {
+    if(event === "success") {
+      this.findListArticle();
+    }else{
+      this.errorMsg = event
+    }
   }
 }

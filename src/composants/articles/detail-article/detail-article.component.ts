@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ArticleDto} from "../../../model/article-dto";
 import {CategoryService} from "../../../services/category/category.service";
 import {CategoryDto} from "../../../model/category-dto";
 import {Router} from "@angular/router";
+import {ArticleService} from "../../../services/article/article.service";
 
 @Component({
   selector: 'app-detail-article',
@@ -15,10 +16,16 @@ export class DetailArticleComponent implements OnInit {
   @Input()
   articleDto: ArticleDto = {};
 
+  @Output()
+  suppressionResult = new EventEmitter();
+
   categoryDto: CategoryDto = {};
+  errorsMsg= '';
+  listArticle: Array<ArticleDto> = [];
 
   constructor(
     private categoryService: CategoryService,
+    private articleService: ArticleService,  // Assuming ArticleService is a service to fetch and manage articles
     private router: Router,  // Assuming Router is a service to navigate between pages
   ) {
   }
@@ -39,7 +46,30 @@ export class DetailArticleComponent implements OnInit {
     this.router.navigate(['nouvelarticles',id])
   }
 
-  selectArticlePourSupprimer(id: string | undefined) {
 
+
+  findAllArt(): void {
+    this.articleService.findAllArticle()
+      .subscribe(res => {
+        this.listArticle = res;
+      });
+  }
+
+
+  confirmerEtSupprimerArt() {
+    if(this.articleDto.id) {
+      this.articleService.deleteArt(this.articleDto.id)
+        .subscribe({
+          next: () => {
+            this.suppressionResult.emit("success");
+            this.findAllArt()
+
+          },
+          error: (error) => {
+            this.errorsMsg = error.error.errors
+            this.suppressionResult.emit(this.errorsMsg);
+          }
+        })
+    }
   }
 }

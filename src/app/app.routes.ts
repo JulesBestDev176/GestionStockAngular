@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: '',
     component: PageDashboardComponent,
-    //canActivate: [ApplicationGuardService],
+    canActivate: [ApplicationGuardService],
     children: [
       {
         path: 'statistiques',

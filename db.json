@@ -50,41 +50,19 @@
       "designation": "alimentaire"
     },
     {
-      "id": "8da2",
+      "id": "d612",
       "code": "PR_SOIN",
       "designation": "soin"
     }
   ],
   "articles": [
     {
-      "id": "07e4",
-      "codeArticle": "123",
-      "designation": "mixa",
+      "id": "ecec",
+      "codeArticle": "3",
+      "designation": "coca",
       "prixUnitaireHt": "700",
-      "tauxTva": "50",
-      "prixUnitaireTtc": "750",
-      "category": {
-        "id": "8da2"
-      }
-    },
-    {
-      "id": "07e4",
-      "codeArticle": "12345",
-      "designation": "coca cola",
-      "prixUnitaireHt": "700",
-      "tauxTva": "60",
-      "prixUnitaireTtc": "770",
-      "category": {
-        "id": "b431"
-      }
-    },
-    {
-      "id": "a00d",
-      "codeArticle": "1",
-      "designation": "lait",
-      "prixUnitaireHt": "800",
-      "tauxTva": "80",
-      "prixUnitaireTtc": "880",
+      "tauxTva": "5",
+      "prixUnitaireTtc": 735,
       "category": {
         "id": "b431"
       }

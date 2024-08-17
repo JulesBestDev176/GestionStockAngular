@@ -75,7 +75,19 @@ export class AuthService {
   }
 
   getUser(): UserModel | null {
-    return this.user;
+    const userJson = localStorage.getItem('user');
+
+    if (userJson) {
+      try {
+        const user: UserModel = JSON.parse(userJson);
+        return user;
+      } catch (error) {
+        console.error('Failed to parse user from localStorage', error);
+        return null;
+      }
+    }
+
+    return null;
   }
 
   storeToken(token: string): void {
