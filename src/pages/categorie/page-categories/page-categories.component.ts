@@ -20,6 +20,8 @@ import {NgForOf, NgIf} from "@angular/common";
 })
 export class PageCategoriesComponent implements OnInit {
   listCategories : Array<CategoryDto> = [];
+  selectedCategoryIdToDelete: string | undefined = "";
+  errorsMsg= '';
   constructor(
     private router: Router,
     private categoryService : CategoryService // Assuming CategoryService is a service to fetch categories
@@ -29,13 +31,37 @@ export class PageCategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.findAllCategories();
+  }
+
+  findAllCategories(): void {
     this.categoryService.findAllCat()
-     .subscribe(res => {
-       this.listCategories = res;
-     });
+      .subscribe(res => {
+        this.listCategories = res;
+      });
   }
 
   modifierCategory(id: string | undefined) {
     this.router.navigate(['nouvellecategorie',id])
+  }
+
+  confirmerEtSupprimerCat() {
+    if (this.selectedCategoryIdToDelete != "") {
+      this.categoryService.deleteCat(this.selectedCategoryIdToDelete)
+        .subscribe({
+          next: () => this.findAllCategories(),
+          error: (error) => {
+            this.errorsMsg = error.error.errors
+          }
+        })
+    }
+  }
+
+  annulerSuppressionCat() {
+    this.selectedCategoryIdToDelete = "";
+  }
+
+  selectCategoriePourSupprimer(id: string | undefined) {
+    this.selectedCategoryIdToDelete = id;
   }
 }

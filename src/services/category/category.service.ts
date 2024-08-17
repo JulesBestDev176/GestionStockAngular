@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {CategoryDto} from "../../model/category-dto";
-import {filter, map, Observable} from "rxjs";
+import {filter, map, Observable, of} from "rxjs";
 import {StrictHttpResponse} from "../../services/strict-http-response";
 import {BaseService} from "../../services/base-service";
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from "@angular/common/http";
@@ -45,6 +45,13 @@ export class CategoryService implements OnInit {
 
   findByIdCat(id: string): Observable<CategoryDto> {
     return this.findById(id);
+  }
+
+  deleteCat(selectedCategoryIdToDelete: string | undefined) : Observable<any> {
+    if(selectedCategoryIdToDelete) {
+      return this.delete(selectedCategoryIdToDelete);
+    }
+    return of();
   }
 
 
@@ -168,4 +175,35 @@ export class CategoryService implements OnInit {
     );
 
   }
+
+  delete(idCategory: string | undefined): Observable<null> {
+    return this.deleteResponse(idCategory).pipe(
+      map(_r => _r.body as null)
+    );
+  }
+
+  deleteResponse(idCategory: string | undefined): Observable<StrictHttpResponse<null>> {
+    let __params = this.base.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'DELETE',
+      `${this.base._rootUrl}${this.baseUrl}/${idCategory}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map((_r) => {
+        return _r as StrictHttpResponse<null>;
+      })
+    );
+  }
+
+
 }
