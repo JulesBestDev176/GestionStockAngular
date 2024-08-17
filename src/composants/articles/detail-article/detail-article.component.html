@@ -1,4 +1,4 @@
-<div class="card mb-2 pt-2 pb-2  d-flex flex-row">
+<div class="card mb-2 pt-2 pb-2  d-flex flex-row" >
 <!--  Image-->
   <div class="col-md-2 d-flex align-items-center justify-content-center border-right">
     <img src="assets/product.png" alt="product" width="100px" height="100px"/>
@@ -10,7 +10,7 @@
         <i class="fa-solid fa-circle-info text-primary"></i>
       </div>
       <div class="col-md-10">
-        Code Article
+        {{articleDto.codeArticle}}
       </div>
     </div>
     <div class="col d-flex">
@@ -18,7 +18,7 @@
         <i class="fa-solid fa-circle-info text-primary"></i>
       </div>
       <div class="col-md-10">
-        Designation
+        {{articleDto.designation}}
       </div>
     </div>
     <div class="col d-flex">
@@ -26,7 +26,7 @@
         <i class="fa-solid fa-dollar-sign text-primary"></i>
       </div>
       <div class="col-md-10">
-        Prix HT
+        {{articleDto.prixUnitaireHt}} FCFA
       </div>
     </div>
     <div class="col d-flex">
@@ -34,7 +34,7 @@
         <i class="fa-solid fa-dollar-sign text-primary"></i>
       </div>
       <div class="col-md-10">
-        Prix TTC
+        {{articleDto.prixUnitaireTtc}} FCFA
       </div>
     </div>
   </div>
@@ -44,24 +44,26 @@
       <i class="fa-solid fa-flag-checkered text-primary"></i>
     </div>
     <div class="col-md-10 text-start">
-      <div class="col mb-2">Code categorie</div>
-      <div class="col">Description categorie</div>
+      <div class="col mb-2">{{categoryDto.code}}</div>
+      <div class="col">{{categoryDto.designation}}</div>
     </div>
   </div>
 <!--  Action-->
   <div class="col-md-4 d-flex align-items-center text-center">
-    <div class="col d-flex">
-      <div class="col-md-4 p-0 text-warning">
+    <div class="col ps-3  ">
+      <div class="col  d-flex justify-content-around ">
+        <button type="button" class="btn btn-link  p-0 text-warning text-center" (click)="modifierArticle(articleDto.id)">
           <i class="fa-solid fa-pencil"></i><br/>
           Modifier
-      </div>
-      <div class="col-md-4 p-0 text-danger">
+        </button>
+        <button type="button" class="btn btn-link  p-0 text-danger text-center" data-bs-toggle="modal" data-bs-target="#modalDelCat" (click)="selectArticlePourSupprimer(articleDto.id)">
           <i class="fa-solid fa-trash-can"></i><br/>
           Supprimer
-      </div>
-      <div class="col-md-4 p-0 text-primary">
+        </button>
+        <button  type="button" class="btn btn-link p-0 text-primary">
           <i class="fa-regular fa-rectangle-list"></i><br/>
           Details
+        </button>
       </div>
     </div>
   </div>

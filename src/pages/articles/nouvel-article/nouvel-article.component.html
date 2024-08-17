@@ -7,34 +7,39 @@
       <i class="fa-solid fa-circle-info"></i>&nbsp;
       Information de l'article
     </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Code article">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Designation">
-      </div>
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <span *ngFor="let msg of errorMsg"> {{msg}} <br/> </span>
     </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Prix unitaire HT">
+    <form [formGroup]="artForm" (ngSubmit)="saveArticle()">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Code article" name="codeArt" formControlName="codeArt" [(ngModel)]="articleDto.codeArticle" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Designation" name="designationArt" formControlName="designationArt" [(ngModel)]="articleDto.designation" required>
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Taux TVA">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Prix unitaire HT" name="puhtArt" formControlName="puhtArt" [(ngModel)]="articleDto.prixUnitaireHt" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Taux TVA" name="ttvaArt" formControlName="ttvaArt" [(ngModel)]="articleDto.tauxTva" required>
+        </div>
       </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Prix unitaire TTC">
+      <div class="row mb-5">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Prix unitaire TTC" name="puttcArt" formControlName="puttcArt" [(ngModel)]="articleDto.prixUnitaireTtc" required>
+        </div>
+        <div class="col">
+          <select class="form-select" name="cat" formControlName="cat" [(ngModel)]="categoryDto.id" required>
+            <option selected>Selectionner une categorie</option>
+            <option *ngFor="let cat of listCategory" [value]="cat.id">{{cat.code}} - {{cat.designation}}</option>
+          </select>
+        </div>
       </div>
-      <div class="col">
-        <select class="form-select" >
-          <option selected>Selectionner une categorie</option>
-          <option value="CAT-1234">CAT-1234</option>
-          <option value="CAT-5678">CAT-5678</option>
-        </select>
-      </div>
-    </div>
+      <app-bouton-action-annuler></app-bouton-action-annuler>
+    </form>
   </div>
-  <app-bouton-action-annuler></app-bouton-action-annuler>
+
 </div>

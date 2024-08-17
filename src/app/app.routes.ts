@@ -51,6 +51,14 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'nouvelarticles/:idArticle',
+        component: NouvelArticleComponent,
+        canActivate : [ApplicationGuardService],
+        data: {
+          direction: 'article'
+        }
+      },
+      {
         path: 'mvtstk',
         component: PageMvtstkComponent,
         canActivate : [ApplicationGuardService]

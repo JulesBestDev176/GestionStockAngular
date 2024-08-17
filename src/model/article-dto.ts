@@ -1,7 +1,7 @@
 /* tslint:disable */
 import { CategoryDto } from './category-dto';
 export interface ArticleDto {
-  id?: number;
+  id?: string;
   codeArticle?: string;
   designation?: string;
   prixUnitaireHt?: number;
@@ -9,5 +9,5 @@ export interface ArticleDto {
   prixUnitaireTtc?: number;
   photo?: string;
   category?: CategoryDto;
-  idEntreprise?: number;
+  idEntreprise?: string;
 }
