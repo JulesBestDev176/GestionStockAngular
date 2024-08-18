@@ -70,21 +70,36 @@
   ],
   "clients": [
     {
-      "id": "537f",
       "nom": "fall",
       "prenom": "souleymane",
-      "mail": "souleymanefallpro@gmail.com",
-      "numTel": "777151061",
+      "mail": "souleymanefallpr@gmail.com",
+      "numTel": "777151060",
       "idEntreprise": "330a",
       "adresse": {
         "adresse1": "yeumbeul",
         "adresse2": "comico",
-        "ville": "Dakar",
-        "codePostale": "17000",
+        "ville": "Thies",
+        "codePostale": "18000",
+        "pays": "senegal"
+      },
+      "id": "537f"
+    }
+  ],
+  "fournisseurs": [
+    {
+      "id": "1dbc",
+      "nom": "Lo",
+      "prenom": "thierno",
+      "mail": "thierlo74@gmail.com",
+      "numTel": "773736900",
+      "idEntreprise": "330a",
+      "adresse": {
+        "adresse1": "medina",
+        "adresse2": "gibraltar",
+        "ville": "dakar",
+        "codePostale": "21000",
         "pays": "senegal"
       }
     }
-  ],
-  "fournisseurs": [],
-  "adresse": []
+  ]
 }

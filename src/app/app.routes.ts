@@ -82,6 +82,14 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'nouveauclient/:id',
+        component: NouvelCltFrsComponent,
+        canActivate : [ApplicationGuardService],
+        data: {
+          origin: 'client'
+        }
+      },
+      {
         path: 'commandesclients',
         component: PageCmdCltFrsComponent,
         canActivate : [ApplicationGuardService],
@@ -105,6 +113,14 @@ export const routes: Routes = [
       },
       {
         path: 'nouveaufournisseur',
+        component: NouvelCltFrsComponent,
+        canActivate : [ApplicationGuardService],
+        data: {
+          origin: 'fournisseur'
+        }
+      },
+      {
+        path: 'nouveaufournisseur/:id',
         component: NouvelCltFrsComponent,
         canActivate : [ApplicationGuardService],
         data: {

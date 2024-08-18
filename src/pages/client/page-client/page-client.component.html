@@ -10,10 +10,16 @@
     </div>
   </div>
   <div class="card p-3">
-    <app-detail-client></app-detail-client>
-    <app-detail-client></app-detail-client>
-    <app-detail-client></app-detail-client>
-    <app-detail-client></app-detail-client>
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
+    <app-detail-client
+      *ngFor="let client of listClient"
+      [clientFournisseurDto] = "client"
+      (suppressionResult)="handleSuppression($event)"
+      [origin]="'client'"
+    ></app-detail-client>
+
   </div>
   <div class="row p-0 text-center mt-3 mb-3">
     <app-pagination></app-pagination>

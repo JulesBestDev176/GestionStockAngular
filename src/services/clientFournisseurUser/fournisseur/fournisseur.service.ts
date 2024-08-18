@@ -136,4 +136,34 @@ export class FournisseurService {
       map(_r => _r.body as FournisseurDto)
     );
   }
+
+  modifierFournisseur(idFournisseur: string, fournisseurDto: FournisseurDto) {
+    return this.updateResponse(idFournisseur, fournisseurDto).pipe(
+      map(_r => _r.body as FournisseurDto)
+    );
+  }
+
+  private updateResponse(idFournisseur: string, fournisseurDto: FournisseurDto) {
+    let __params = this.base.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = fournisseurDto;
+    let req = new HttpRequest<any>(
+      'PUT',
+      `${this.base._rootUrl}${this.baseUrl}/${idFournisseur}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map((_r) => {
+        return _r as StrictHttpResponse<FournisseurDto>;
+      })
+    );
+
+  }
 }

@@ -77,6 +77,36 @@ export class ClientSService {
     );
   }
 
+  modifierClient(idClient: string, clientDto: ClientDto) {
+    return this.updateResponse(idClient, clientDto).pipe(
+      map(_r => _r.body as ClientDto)
+    );
+  }
+
+  private updateResponse(idClient: string, clientDto: ClientDto) {
+    let __params = this.base.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = clientDto;
+    let req = new HttpRequest<any>(
+      'PUT',
+      `${this.base._rootUrl}${this.baseUrl}/${idClient}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map((_r) => {
+        return _r as StrictHttpResponse<ClientDto>;
+      })
+    );
+
+  }
+
 
   deleteResponse(idClient: string): Observable<StrictHttpResponse<null>> {
     let __params = this.base.newParams();

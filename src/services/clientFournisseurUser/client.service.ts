@@ -21,6 +21,8 @@ export class ClientService implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   enregistrerClient(clientDto: ClientDto): Observable<ClientDto> {
     clientDto.idEntreprise = this.authService.getUser()?.id;
     return this.clientService.save(clientDto)
@@ -71,6 +73,32 @@ export class ClientService implements OnInit {
   // autres
 
 
+  modifierClient(id: string, clientDto: ClientDto) {
+    this.clientService.modifierClient(id, clientDto)
+      .subscribe(client => {
+        clientDto = client;
+      })
+  }
 
+  modifierFournisseur(id: string, fournisseurDto: FournisseurDto) {
+    this.fournisseurService.modifierFournisseur(id, fournisseurDto)
+      .subscribe(fournisseur => {
+        fournisseurDto = fournisseur;
+      })
+  }
 
+  deleteClt(id: string | undefined): Observable<any> {
+    if(id) {
+      return this.clientService.delete(id);
+    }
+    return of();
+
+  }
+
+  deleteFrs(id: string | undefined): Observable<any> {
+    if(id) {
+      return this.fournisseurService.delete(id);
+    }
+    return of();
+  }
 }

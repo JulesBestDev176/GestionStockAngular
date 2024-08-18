@@ -54,29 +54,77 @@ export class NouvelCltFrsComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.origin = data['origin'];
     });
+    const id = this.activatedRoute.snapshot.params['id'];
+    if(id){
+      if(this.origin === 'client') {
+        this.clientService.findClientById(id)
+          .subscribe(client => {
+            this.clientFournisseur = client;
+            this.adresseDto = client.adresse || {} as AdresseDto;
+          })
+      }else if(this.origin === 'fournisseur') {
+        this.clientService.findFournisseurById(id)
+          .subscribe(fournisseur => {
+            this.clientFournisseur = fournisseur;
+            this.adresseDto = fournisseur.adresse || {} as AdresseDto;
+          })
+      }
+    }
+
+
+  }
+
+  findObject() {
+    const id  = this.activatedRoute.snapshot.params['id'];
+    if(id) {
+      if(this.origin === 'client') {
+        this.clientService.findClientById(id)
+          .subscribe(client => {
+            this.clientFournisseur = client;
+          })
+      }else if(this.origin === 'fournisseur') {
+        this.clientService.findFournisseurById(id)
+          .subscribe(fournisseur => {
+            this.clientFournisseur = fournisseur;
+          })
+      }
+    }
   }
 
   enregistrerCltFrsUt() {
     const formValue = this.clientFournisseurForm.value;
-   if (this.origin === 'client') {
-     this.clientService.enregistrerClient(this.mapToClient(formValue))
-       .subscribe({
-          next: () => {
-            this.router.navigate(['clients']);
-          } ,
-          error: err => {
-            this.errorMsg = err.error.errors;
-          }
-       });
-   }else if(this.origin === 'fournisseur') {
-     this.clientService.enregistrerFournisseur(this.mapToFournisseur(formValue))
-       .subscribe({
-          next: () => this.router.navigate(['fournisseurs']),
-          error: err => {
-            this.errorMsg = err.error.errors;
-          }
-       });
-   }
+    const idCltFrs = this.activatedRoute.snapshot.params['id'];
+    if(idCltFrs) {
+      if(this.origin === 'client') {
+        this.clientService.modifierClient(idCltFrs,this.mapToClient(formValue));
+        this.router.navigate(['clients']);
+      }else if(this.origin === 'fournisseur') {
+        this.clientService.modifierFournisseur(idCltFrs,this.mapToFournisseur(formValue));
+        this.router.navigate(['fournisseurs']);
+      }
+    } else {
+      if (this.origin === 'client') {
+        this.clientService.enregistrerClient(this.mapToClient(formValue))
+          .subscribe({
+            next: () => {
+              this.router.navigate(['clients']);
+            } ,
+            error: err => {
+              this.errorMsg = err.error.errors;
+            }
+          });
+      }else if(this.origin === 'fournisseur') {
+        this.clientService.enregistrerFournisseur(this.mapToFournisseur(formValue))
+          .subscribe({
+            next: () => this.router.navigate(['fournisseurs']),
+            error: err => {
+              this.errorMsg = err.error.errors;
+            }
+          });
+      }
+    }
+
+
   }
 
   mapToClient(formValue: any): ClientDto {

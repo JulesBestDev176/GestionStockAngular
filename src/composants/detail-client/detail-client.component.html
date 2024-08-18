@@ -10,7 +10,7 @@
         <i class="fa-solid fa-circle-info text-primary"></i>
       </div>
       <div class="col-md-10">
-        Nom
+        {{clientFournisseurDto.nom}}
       </div>
     </div>
     <div class="col d-flex">
@@ -18,7 +18,7 @@
         <i class="fa-solid fa-circle-info text-primary"></i>
       </div>
       <div class="col-md-10">
-        Prenom
+        {{clientFournisseurDto.prenom}}
       </div>
     </div>
     <div class="col d-flex">
@@ -26,7 +26,7 @@
         <i class="fa-solid fa-square-phone text-success"></i>
       </div>
       <div class="col-md-10">
-        0011 22 33 44 55
+        {{clientFournisseurDto.numTel}}
       </div>
 
     </div>
@@ -41,26 +41,50 @@
     </div>
     <div class="col-md-10 text-start">
       <div class="col mb-2">
-        Adresse 1 Adresse 2
+        {{clientFournisseurDto.adresse?.adresse1 }}&nbsp; {{clientFournisseurDto.adresse?.adresse2 }}
       </div>
-      <div class="col">12345 ville</div>
-      <div class="col">Pays</div>
+      <div class="col">{{clientFournisseurDto.adresse?.codePostale}}&nbsp; {{clientFournisseurDto.adresse?.ville}}</div>
+      <div class="col">{{clientFournisseurDto.adresse?.pays}}</div>
     </div>
   </div>
   <!--  Action-->
   <div class="col-md-4 d-flex align-items-center text-center">
     <div class="col d-flex">
-      <div class="col-md-4 p-0 text-warning">
+      <button type="button" class="btn btn-link col-md-4 p-0 text-warning" (click)="modifierClientFournisseur()">
         <i class="fa-solid fa-pencil"></i><br/>
         Modifier
-      </div>
-      <div class="col-md-4 p-0 text-danger">
+      </button>
+      <button  type="button" class="btn btn-link col-md-4 p-0 text-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#modalDelCltFrs' + clientFournisseurDto.id">
         <i class="fa-solid fa-trash-can"></i><br/>
         Supprimer
-      </div>
-      <div class="col-md-4 p-0 text-primary">
+      </button>
+      <button  type="button" class="btn btn-link col-md-4 p-0 text-primary">
         <i class="fa-regular fa-rectangle-list"></i><br/>
         Details
+      </button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalDelCltFrs{{clientFournisseurDto.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Voulez vous supprimer cet {{type}} ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="fa-solid fa-ban"></i>&nbsp;
+            Annuler
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmerEtSupprimerCltFrs()">
+            <i class="fa-solid fa-trash-can"></i>&nbsp;
+            Supprimer
+          </button>
+        </div>
       </div>
     </div>
   </div>

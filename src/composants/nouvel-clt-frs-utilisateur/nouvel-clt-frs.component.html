@@ -20,34 +20,34 @@
     <form [formGroup]="clientFournisseurForm"  (ngSubmit)="enregistrerCltFrsUt()">
       <div class="row mb-3">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Nom" formControlName="nom" >
+          <input type="text" class="form-control" placeholder="Nom" formControlName="nom"  [(ngModel)]="clientFournisseur.nom">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Adresse 1" formControlName="adresse1" >
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom" >
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Adresse 2" formControlName="adresse2">
+          <input type="text" class="form-control" placeholder="Adresse 1" formControlName="adresse1" [(ngModel)]="adresseDto.adresse1">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <input type="email" class="form-control" placeholder="E-mail"  formControlName="email"  >
+          <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom" [(ngModel)]="clientFournisseur.prenom" >
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Ville"  formControlName="ville">
+          <input type="text" class="form-control" placeholder="Adresse 2" formControlName="adresse2" [(ngModel)]="adresseDto.adresse2">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone" >
+          <input type="email" class="form-control" placeholder="E-mail"  formControlName="email"  [(ngModel)]="clientFournisseur.mail">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Code postal"  formControlName="code_postal">
+          <input type="text" class="form-control" placeholder="Ville"  formControlName="ville" [(ngModel)]="adresseDto.ville">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone" [(ngModel)]="clientFournisseur.numTel">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Code postal"  formControlName="code_postal" [(ngModel)]="adresseDto.codePostale">
         </div>
       </div>
       <div class="row mb-3">
@@ -55,7 +55,7 @@
           &nbsp;
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Pays"  formControlName="pays">
+          <input type="text" class="form-control" placeholder="Pays"  formControlName="pays" [(ngModel)]="adresseDto.pays">
         </div>
       </div>
       <app-bouton-action-annuler></app-bouton-action-annuler>
