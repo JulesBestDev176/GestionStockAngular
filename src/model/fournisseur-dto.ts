@@ -1,12 +1,12 @@
 /* tslint:disable */
 import { AdresseDto } from './adresse-dto';
 export interface FournisseurDto {
-  id?: number;
+  id?: string;
   nom?: string;
   prenom?: string;
   adresse?: AdresseDto;
   photo?: string;
   mail?: string;
   numTel?: string;
-  idEntreprise?: number;
+  idEntreprise?: string;
 }

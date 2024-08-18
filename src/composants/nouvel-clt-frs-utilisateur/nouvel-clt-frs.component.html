@@ -3,6 +3,9 @@
     <img src="assets/product.png" alt="user" class="rounded-circle " width="70px" height="70px" />
   </div>
   <div class="col-md-12 card p-3 mb-3">
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">{{msg}}</div><br/>
+    </div>
     <div class="row text-primary mb-3">
       <div class="col fs-6">
         <i class="fa-solid fa-circle-info"></i>&nbsp;
@@ -13,47 +16,51 @@
         Adresse {{origin}}
       </div>
     </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Nom">
+
+    <form [formGroup]="clientFournisseurForm"  (ngSubmit)="enregistrerCltFrsUt()">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Nom" formControlName="nom" >
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Adresse 1" formControlName="adresse1" >
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Adresse 1">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom" >
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Adresse 2" formControlName="adresse2">
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Prenom">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="email" class="form-control" placeholder="E-mail"  formControlName="email"  >
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Ville"  formControlName="ville">
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Adresse 2">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone" >
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Code postal"  formControlName="code_postal">
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="email" class="form-control" placeholder="E-mail">
+      <div class="row mb-3">
+        <div class="col">
+          &nbsp;
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Pays"  formControlName="pays">
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Ville">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Telephone">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Code postal">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col">
-        &nbsp;
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Pays">
-      </div>
-    </div>
+      <app-bouton-action-annuler></app-bouton-action-annuler>
+    </form>
 
   </div>
-  <app-bouton-action-annuler></app-bouton-action-annuler>
+
 </div>

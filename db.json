@@ -67,5 +67,24 @@
         "id": "b431"
       }
     }
-  ]
+  ],
+  "clients": [
+    {
+      "id": "537f",
+      "nom": "fall",
+      "prenom": "souleymane",
+      "mail": "souleymanefallpro@gmail.com",
+      "numTel": "777151061",
+      "idEntreprise": "330a",
+      "adresse": {
+        "adresse1": "yeumbeul",
+        "adresse2": "comico",
+        "ville": "Dakar",
+        "codePostale": "17000",
+        "pays": "senegal"
+      }
+    }
+  ],
+  "fournisseurs": [],
+  "adresse": []
 }

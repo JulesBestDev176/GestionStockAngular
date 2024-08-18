@@ -2,15 +2,14 @@
 import { Adresse } from './adresse';
 import { CommandeClient } from './commande-client';
 export interface Client {
-  id?: number;
+  id?: string;
   creationDate?: number;
   lastModifiedDate?: number;
   nom?: string;
   prenom?: string;
-  adresse?: Adresse;
   photo?: string;
   mail?: string;
   numTel?: string;
-  idEntreprise?: number;
+  idEntreprise?: string;
   commandeClients?: Array<CommandeClient>;
 }
