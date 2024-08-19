@@ -8,6 +8,8 @@ import {CategoryService} from "../../../services/category/category.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {catchError, throwError} from "rxjs";
+import {PhotoService} from "../../../services/photo/photo.service";
+import {SavePhotoParams} from "../../../model/save-photo-params";
 
 @Component({
   selector: 'app-nouvel-article',
@@ -29,12 +31,15 @@ export class NouvelArticleComponent implements OnInit {
   listCategory: Array<CategoryDto> = [];
   errorMsg: Array<string> = [];
   artForm: FormGroup;
+  imgUrl: string | ArrayBuffer = 'assets/product.png';
+  file: File | null = null;
   constructor(
     private articleService: ArticleService,
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private photoService: PhotoService
   ) {
     this.artForm = this.formBuilder.group({
       codeArt: ['', Validators.required],
@@ -78,7 +83,12 @@ export class NouvelArticleComponent implements OnInit {
           })
         )
         .subscribe({
-          next: () => this.router.navigate(['articles']),
+          next: () => {
+            if(this.articleDto.id) {
+              this.savePhoto(this.articleDto.id, this.articleDto.codeArticle);
+            }
+            this.router.navigate(['articles'])
+          },
           error: (error) => {
             // Additional error handling if needed
             console.error('Error occurred:', error);
@@ -104,7 +114,12 @@ export class NouvelArticleComponent implements OnInit {
 
       this.articleService.enregistrerArticle(this.articleDto)
         .subscribe({
-          next: () => this.router.navigate(['articles']),
+          next: () => {
+            if(this.articleDto.id) {
+              this.savePhoto(this.articleDto.id, this.articleDto.codeArticle);
+            }
+            this.router.navigate(['articles'])
+          },
           error:err => {
             this.errorMsg = err.error.errors;
           }
@@ -117,6 +132,38 @@ export class NouvelArticleComponent implements OnInit {
   calculerTTC() {
     if (this.articleDto.prixUnitaireHt && this.articleDto.tauxTva) {
       this.articleDto.prixUnitaireTtc = this.articleDto.prixUnitaireHt * (1 + this.articleDto.tauxTva / 100);
+    }
+  }
+
+  onFileInput(file:FileList | null) {
+    if(file) {
+      this.file = file.item(0);
+      if(this.file) {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(this.file);
+        fileReader.onload = (event: any) => {
+          if(fileReader.result) {
+            this.imgUrl = fileReader.result;
+          }
+        };
+      }
+    }
+  }
+
+  savePhoto(idArticle: string | null, titre?:string) {
+    if(idArticle && titre && this.file) {
+      const params: SavePhotoParams = {
+        id: idArticle,
+        file: this.file,
+        title: titre,
+        context: 'article'
+      }
+      this.photoService.savePhoto(params)
+        .subscribe(res => {
+          this.router.navigate(['articles']);
+        });
+    }else {
+      this.router.navigate(['articles']);
     }
   }
 }

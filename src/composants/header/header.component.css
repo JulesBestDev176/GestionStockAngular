@@ -1,0 +1,12 @@
+/* Aligner le modal à droite */
+.modal-dialog.modal-dialog-end {
+  position: absolute;
+  right: 25px;
+  top: 90px;
+  margin: 0;
+  width: auto; /* Ajustez la largeur selon vos besoins */
+}
+
+.modal-content {
+  width: 150px; /* Ajustez la largeur selon vos besoins */
+}

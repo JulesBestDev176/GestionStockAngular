@@ -11,11 +11,28 @@
         <span>Bonjour {{connectedUser.nom}}</span>
       </div>
       <div class="col-md-3">
-        <a href="javascript:void(0);" [routerLink]="['/profils']">
+        <button type="button" style="background-color: transparent; border: none;"   data-bs-toggle="modal" data-bs-target="#exampleModal">
           <img src="favicon.ico" class="rounded-circle" />
-        </a>
+        </button>
+
       </div>
     </div>
   </div>
 
+</div>
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-end">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <a class="text-muted " href="javascript:void(0);" [routerLink]="['/profils']" data-bs-dismiss="modal" style="text-decoration: none">
+          Mon Profil
+        </a>
+        <hr>
+        <button type="button" class="btn btn-link text-muted p-0 text-center" style="text-decoration: none"  data-bs-dismiss="modal" (click)="deconnexion()">Déconnexion</button>
+      </div>
+    </div>
+  </div>
 </div>

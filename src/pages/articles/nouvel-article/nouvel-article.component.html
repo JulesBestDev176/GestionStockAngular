@@ -1,6 +1,10 @@
 <div class="col p-3">
   <div class="col-md-12 p-2">
-    <img src="assets/product.png" alt="user" class="rounded-circle " width="70px" height="70px" />
+    <button (click)="inputFile.click()" style="background-color: transparent; border: none">
+      <img [src]="imgUrl" alt="user" class="rounded-circle " width="70px" height="70px" />
+      <input hidden type="file" #inputFile (change)="onFileInput(inputFile.files)"/>
+    </button>
+
   </div>
   <div class="col-md-12 card p-3 mb-3">
     <div class="col-md-12 text-primary mb-3">

@@ -57,15 +57,40 @@
   ],
   "articles": [
     {
-      "id": "ecec",
-      "codeArticle": "3",
-      "designation": "coca",
+      "id": "23ae",
+      "codeArticle": "1",
+      "designation": "mixa",
       "prixUnitaireHt": "700",
       "tauxTva": "5",
       "prixUnitaireTtc": 735,
       "category": {
+        "id": "d612"
+      },
+      "idEntreprise": "330a"
+    },
+    {
+      "id": "b7f0",
+      "codeArticle": "2",
+      "designation": "lait",
+      "prixUnitaireHt": "800",
+      "tauxTva": "70",
+      "prixUnitaireTtc": 1360,
+      "category": {
         "id": "b431"
-      }
+      },
+      "idEntreprise": "330a"
+    },
+    {
+      "id": "85eb",
+      "codeArticle": "15",
+      "designation": "coca cola",
+      "prixUnitaireHt": "200",
+      "tauxTva": "5",
+      "prixUnitaireTtc": 210,
+      "category": {
+        "id": "b431"
+      },
+      "idEntreprise": "330a"
     }
   ],
   "clients": [
@@ -101,5 +126,6 @@
         "pays": "senegal"
       }
     }
-  ]
+  ],
+  "photos": []
 }
