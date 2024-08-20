@@ -10,7 +10,7 @@ import {LigneCommandeFournisseurDto} from "../../../model/ligne-commande-fournis
   providedIn: 'root'
 })
 export class CommandeFournisseurService {
-  private baseUrl: string = "http://localhost:3000/commandesClients";
+  private baseUrl: string = "http://localhost:3000/commandesFournisseurs";
 
   constructor(
     private http: HttpClient,
@@ -133,7 +133,7 @@ export class CommandeFournisseurService {
   /**
    * @param idCommandeFournisseur undefined
    */
-  deleteResponse(idCommandeFournisseur: number): Observable<StrictHttpResponse<null>> {
+  deleteResponse(idCommandeFournisseur: string): Observable<StrictHttpResponse<null>> {
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -158,7 +158,7 @@ export class CommandeFournisseurService {
   /**
    * @param idCommandeFournisseur undefined
    */
-  delete(idCommandeFournisseur: number): Observable<null> {
+  delete(idCommandeFournisseur: string): Observable<null> {
     return this.deleteResponse(idCommandeFournisseur).pipe(
       map(_r => _r.body as null)
     );
@@ -204,7 +204,7 @@ export class CommandeFournisseurService {
    * @param idCommande undefined
    * @return successful operation
    */
-  findAllLignesCommandesFournisseurByCommandeFournisseurIdResponse(idCommande: number): Observable<StrictHttpResponse<Array<LigneCommandeFournisseurDto>>> {
+  findAllLignesCommandesFournisseurByCommandeFournisseurIdResponse(idCommande: string): Observable<StrictHttpResponse<Array<LigneCommandeFournisseurDto>>> {
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -230,7 +230,7 @@ export class CommandeFournisseurService {
    * @param idCommande undefined
    * @return successful operation
    */
-  findAllLignesCommandesFournisseurByCommandeFournisseurId(idCommande: number): Observable<Array<LigneCommandeFournisseurDto>> {
+  findAllLignesCommandesFournisseurByCommandeFournisseurId(idCommande: string): Observable<Array<LigneCommandeFournisseurDto>> {
     return this.findAllLignesCommandesFournisseurByCommandeFournisseurIdResponse(idCommande).pipe(
       map(_r => _r.body as Array<LigneCommandeFournisseurDto>)
     );
@@ -438,7 +438,7 @@ export class CommandeFournisseurService {
    * @param idCommandeFournisseur undefined
    * @return successful operation
    */
-  findByIdResponse(idCommandeFournisseur: number): Observable<StrictHttpResponse<CommandeFournisseurDto>> {
+  findByIdResponse(idCommandeFournisseur: string): Observable<StrictHttpResponse<CommandeFournisseurDto>> {
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -464,7 +464,7 @@ export class CommandeFournisseurService {
    * @param idCommandeFournisseur undefined
    * @return successful operation
    */
-  findById(idCommandeFournisseur: number): Observable<CommandeFournisseurDto> {
+  findById(idCommandeFournisseur: string): Observable<CommandeFournisseurDto> {
     return this.findByIdResponse(idCommandeFournisseur).pipe(
       map(_r => _r.body as CommandeFournisseurDto)
     );
@@ -478,24 +478,24 @@ module CommandefournisseurService {
    * Parameters for deleteArticle
    */
   export interface DeleteArticleParams {
-    idLigneCommande: number;
-    idCommande: number;
+    idLigneCommande: string;
+    idCommande: string;
   }
 
   /**
    * Parameters for updateArticle
    */
   export interface UpdateArticleParams {
-    idLigneCommande: number;
-    idCommande: number;
-    idArticle: number;
+    idLigneCommande: string;
+    idCommande: string;
+    idArticle: string;
   }
 
   /**
    * Parameters for updateEtatCommande
    */
   export interface UpdateEtatCommandeParams {
-    idCommande: number;
+    idCommande: string;
     etatCommande: 'EN_PREPARATION' | 'VALIDEE' | 'LIVREE';
   }
 
@@ -503,8 +503,8 @@ module CommandefournisseurService {
    * Parameters for updateFournisseur
    */
   export interface UpdateFournisseurParams {
-    idFournisseur: number;
-    idCommande: number;
+    idFournisseur: string;
+    idCommande: string;
   }
 
   /**
@@ -512,7 +512,7 @@ module CommandefournisseurService {
    */
   export interface UpdateQuantiteCommandeParams {
     quantite: number;
-    idLigneCommande: number;
-    idCommande: number;
+    idLigneCommande: string;
+    idCommande: string;
   }
 }

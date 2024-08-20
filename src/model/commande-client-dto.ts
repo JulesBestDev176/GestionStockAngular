@@ -5,7 +5,7 @@ import {ArticleDto} from "./article-dto";
 export interface CommandeClientDto {
   id?: number;
   code?: string;
-  dateCommande?: number;
+  dateCommande?: Date;
   etatCommande?: 'EN_PREPARATION' | 'VALIDEE' | 'LIVREE';
   client?: ClientDto;
   idEntreprise?: string;

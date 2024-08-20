@@ -168,7 +168,7 @@ export class CommandeClientService {
   }
 
 
-  findAllLignesCommandesClientByCommandeClientIdResponse(idCommande: number): Observable<StrictHttpResponse<Array<LigneCommandeClientDto>>> {
+  findAllLignesCommandesClientByCommandeClientIdResponse(idCommande: string): Observable<StrictHttpResponse<Array<LigneCommandeClientDto>>> {
     let __params = this.base.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -191,7 +191,7 @@ export class CommandeClientService {
     );
   }
 
-  findAllLignesCommandesClientByCommandeClientId(idCommande: number): Observable<Array<LigneCommandeClientDto>> {
+  findAllLignesCommandesClientByCommandeClientId(idCommande: string): Observable<Array<LigneCommandeClientDto>> {
     return this.findAllLignesCommandesClientByCommandeClientIdResponse(idCommande).pipe(
       map(_r => _r.body as Array<LigneCommandeClientDto>)
     );

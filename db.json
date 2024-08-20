@@ -129,24 +129,162 @@
   ],
   "commandesClients": [
     {
-      "id": "3751",
-      "client": {},
-      "code": "code",
+      "id": "e7dc",
+      "client": {
+        "nom": "fall",
+        "prenom": "souleymane",
+        "mail": "souleymanefallpr@gmail.com",
+        "numTel": "777151060",
+        "idEntreprise": "330a",
+        "adresse": {
+          "adresse1": "yeumbeul",
+          "adresse2": "comico",
+          "ville": "Thies",
+          "codePostale": "18000",
+          "pays": "senegal"
+        },
+        "id": "537f"
+      },
+      "code": "CMD-CLT-1",
+      "dateCommande": "2024-08-20T21:36:32.783Z",
       "etatCommande": "EN_PREPARATION",
+      "ligneCommandeClients": [
+        {
+          "article": {
+            "id": "23ae",
+            "codeArticle": "1",
+            "designation": "mixa",
+            "prixUnitaireHt": "700",
+            "tauxTva": "5",
+            "prixUnitaireTtc": 735,
+            "category": {
+              "id": "d612"
+            },
+            "idEntreprise": "330a"
+          },
+          "quantite": 4,
+          "prixUnitaire": 735,
+          "idEntreprise": "330a"
+        },
+        {
+          "article": {
+            "id": "b7f0",
+            "codeArticle": "2",
+            "designation": "lait",
+            "prixUnitaireHt": "800",
+            "tauxTva": "70",
+            "prixUnitaireTtc": 1360,
+            "category": {
+              "id": "b431"
+            },
+            "idEntreprise": "330a"
+          },
+          "quantite": 2,
+          "prixUnitaire": 1360,
+          "idEntreprise": "330a"
+        }
+      ],
       "idEntreprise": "330a"
     },
     {
-      "id": "b1e2",
-      "client": {},
-      "code": "code",
+      "id": "91f7",
+      "client": {
+        "nom": "fall",
+        "prenom": "souleymane",
+        "mail": "souleymanefallpr@gmail.com",
+        "numTel": "777151060",
+        "idEntreprise": "330a",
+        "adresse": {
+          "adresse1": "yeumbeul",
+          "adresse2": "comico",
+          "ville": "Thies",
+          "codePostale": "18000",
+          "pays": "senegal"
+        },
+        "id": "537f"
+      },
+      "code": "CMD-CLT-2",
+      "dateCommande": "2024-08-20T21:36:32.783Z",
       "etatCommande": "EN_PREPARATION",
+      "ligneCommandeClients": [
+        {
+          "article": {
+            "id": "85eb",
+            "codeArticle": "15",
+            "designation": "coca cola",
+            "prixUnitaireHt": "200",
+            "tauxTva": "5",
+            "prixUnitaireTtc": 210,
+            "category": {
+              "id": "b431"
+            },
+            "idEntreprise": "330a"
+          },
+          "quantite": 3,
+          "prixUnitaire": 210,
+          "idEntreprise": "330a"
+        },
+        {
+          "article": {
+            "id": "23ae",
+            "codeArticle": "1",
+            "designation": "mixa",
+            "prixUnitaireHt": "700",
+            "tauxTva": "5",
+            "prixUnitaireTtc": 735,
+            "category": {
+              "id": "d612"
+            },
+            "idEntreprise": "330a"
+          },
+          "quantite": 2,
+          "prixUnitaire": 735,
+          "idEntreprise": "330a"
+        }
+      ],
       "idEntreprise": "330a"
-    },
+    }
+  ],
+  "commandesFournisseurs": [
     {
-      "id": "a2a0",
-      "client": {},
-      "code": "code",
+      "id": "d954",
+      "fournisseur": {
+        "id": "1dbc",
+        "nom": "Lo",
+        "prenom": "thierno",
+        "mail": "thierlo74@gmail.com",
+        "numTel": "773736900",
+        "idEntreprise": "330a",
+        "adresse": {
+          "adresse1": "medina",
+          "adresse2": "gibraltar",
+          "ville": "dakar",
+          "codePostale": "21000",
+          "pays": "senegal"
+        }
+      },
+      "code": "CMD-FRS-1",
+      "dateCommande": "2024-08-20T20:58:10.180Z",
       "etatCommande": "EN_PREPARATION",
+      "ligneCommandeFournisseurs": [
+        {
+          "article": {
+            "id": "23ae",
+            "codeArticle": "1",
+            "designation": "mixa",
+            "prixUnitaireHt": "700",
+            "tauxTva": "5",
+            "prixUnitaireTtc": 735,
+            "category": {
+              "id": "d612"
+            },
+            "idEntreprise": "330a"
+          },
+          "quantite": 6,
+          "prixUnitaire": 735,
+          "idEntreprise": "330a"
+        }
+      ],
       "idEntreprise": "330a"
     }
   ]

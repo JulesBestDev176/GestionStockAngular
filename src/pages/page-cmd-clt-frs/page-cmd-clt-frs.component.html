@@ -12,61 +12,39 @@
   </div>
   <div class="card p-3">
 
-    <div class="accordion mb-2" id="accordionExample1">
+    <div class="accordion mb-2" id="accordionExample" *ngFor="let cmd of listeCommandes">
       <!-- 1 -->
       <div class="card mb-2">
         <div class="card-header p-0">
-          <h2 class="mb-0">
-            <button class="col-md-12 btn  p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <app-detail-cmd-clt-frs></app-detail-cmd-clt-frs>
+          <h2 class="mb-0" id="commande{{cmd.id}}">
+            <button class="col-md-12 btn  p-0" type="button" data-bs-toggle="collapse"
+                    [attr.aria-controls]="'collapse' + cmd.id" [attr.data-bs-target]="'#collapse' + cmd.id"
+                    aria-expanded="false">
+              <app-detail-cmd-clt-frs
+                [origin]="origin"
+                [commande]="cmd"
+              ></app-detail-cmd-clt-frs>
             </button>
           </h2>
         </div>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1" style="max-height: 300px; overflow-y: scroll; ">
+        <div id="collapse{{cmd.id}}" [attr.aria-labelledby]="'commande' + cmd.id"
+             data-bs-parent="#accordionExample" class="accordion-collapse collapse show"  style="max-height: 300px; overflow-y: scroll; ">
           <div class="card-body">
             <div class="text-primary mb-2">Details de la commande</div>
-            <app-detail-cmd></app-detail-cmd>
-            <app-detail-cmd></app-detail-cmd>
-            <app-detail-cmd></app-detail-cmd>
+            <app-detail-cmd
+              *ngFor="let ligne of mapLignesCommande.get(cmd.id)"
+              [ligneCommande]="ligne"
+            ></app-detail-cmd>
           </div>
 
         </div>
         <div class="card-footer">
           <div class="row">
             <div class="col-md-6 text-start">
-              <h6>3 articles commandés</h6>
+              <h6>{{mapLignesCommande.get(cmd.id).length}} articles commandés</h6>
             </div>
             <div class="col-md-6 text-end">
-              <h6>Total de la commande : 221,4</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="card mb-2">
-        <div class="card-header p-0">
-          <h2 class="mb-0">
-            <button class="col-md-12 btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-              <app-detail-cmd-clt-frs></app-detail-cmd-clt-frs>
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2" style="max-height: 300px; overflow-y: scroll; ">
-          <div class="card-body">
-            <div class="text-primary mb-2">Details de la commande</div>
-            <app-detail-cmd></app-detail-cmd>
-            <app-detail-cmd></app-detail-cmd>
-            <app-detail-cmd></app-detail-cmd>
-
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row">
-            <div class="col-md-6 text-start">
-              <h6>3 articles commandés</h6>
-            </div>
-            <div class="col-md-6 text-end">
-              <h6>Total de la commande : 221,4</h6>
+              <h6>Total de la commande :  {{ calculerTotalCommande(cmd.id) }}</h6>
             </div>
           </div>
         </div>
@@ -75,7 +53,7 @@
     </div>
 
   </div>
-  <div class="row p-0 text-center mt-3 mb-3">
+  <div class="row p-0 text-center mt-3 mb-3" *ngIf="listeCommandes.length">
     <app-pagination></app-pagination>
   </div>
 

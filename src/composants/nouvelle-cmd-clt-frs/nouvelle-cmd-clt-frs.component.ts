@@ -14,6 +14,7 @@ import {LigneCommandeClientDto} from "../../model/ligne-commande-client-dto";
 import {CommandeCltFrsService} from "../../services/commandeCltFrs/commande-clt-frs.service";
 import {CommandeClientDto} from "../../model/commande-client-dto";
 import {CommandeClientService} from "../../services/commandeCltFrs/client/commande-client.service";
+import {CommandeFournisseurDto} from "../../model/commande-fournisseur-dto";
 
 @Component({
   selector: 'app-nouvelle-cmd-clt-frs',
@@ -38,9 +39,10 @@ export class NouvelleCmdCltFrsComponent implements OnInit {
   errorMsg: Array<string> = [];
   codeArticle = '';
   quantite= '';
-  lignesCommandes: Array<LigneCommandeClientDto> = [];
+  lignesCommandes: Array<any> = [];
   totalCommande: number = 0;
   articleNotYetSelected: boolean = false;
+  codeCommande= '';
 
   constructor(
     private activatedRoute : ActivatedRoute,
@@ -151,17 +153,40 @@ export class NouvelleCmdCltFrsComponent implements OnInit {
   }
 
   enregistrerCommande() {
-    const commandeClt : CommandeClientDto = {
-      client: this.selectedClientFournisseur,
-      code: 'code',
-      etatCommande: 'EN_PREPARATION',
-      idEntreprise: this.authService.getUser()?.id
-    };
-    this.commandeClientService.save(commandeClt)
-      .subscribe( {
-        next:(cmd) => this.router.navigate(['commandesclients']),
-        error: (error) => this.errorMsg = error,
-       });
+    const commande = this.preparerCommande();
+    if (this.origin === 'client') {
+      this.commandeCltFrsService.enregistrerCommandeClient(commande as CommandeClientDto)
+        .subscribe({
+        next: () => this.router.navigate(['commandesclients']),
+        error: (error) => this.errorMsg = error.error.errors
+        });
+    } else if (this.origin === 'fournisseur') {
+      this.commandeCltFrsService.enregistrerCommandeFournisseur(commande as CommandeFournisseurDto)
+        .subscribe( {
+          next: () => this.router.navigate(['commandesfournisseurs']),
+          error: (error) => this.errorMsg = error.error.errors
+        });
+    }
+  }
+
+  private preparerCommande(): any {
+    if (this.origin === 'client') {
+      return  {
+        client: this.selectedClientFournisseur,
+        code: this.codeCommande,
+        dateCommande: new Date(),
+        etatCommande: 'EN_PREPARATION',
+        ligneCommandeClients: this.lignesCommandes
+      };
+    } else if (this.origin === 'fournisseur') {
+      return  {
+        fournisseur: this.selectedClientFournisseur,
+        code: this.codeCommande,
+        dateCommande: new Date(),
+        etatCommande: 'EN_PREPARATION',
+        ligneCommandeFournisseurs: this.lignesCommandes
+      };
+    }
   }
 
 }

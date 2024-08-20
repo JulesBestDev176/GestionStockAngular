@@ -37,14 +37,14 @@ export class CommandeCltFrsService {
     return this.commandeFournisseurService.findAll();
   }
 
-  findAllLigneCommandesClient(idCmd?: number): Observable<LigneCommandeClientDto[]> {
+  findAllLigneCommandesClient(idCmd?: string): Observable<LigneCommandeClientDto[]> {
     if (idCmd) {
       return this.commandeClientService.findAllLignesCommandesClientByCommandeClientId(idCmd);
     }
     return of();
   }
 
-  findAllLigneCommandesFournisseur(idCmd?: number): Observable<LigneCommandeFournisseurDto[]> {
+  findAllLigneCommandesFournisseur(idCmd?: string): Observable<LigneCommandeFournisseurDto[]> {
     if (idCmd) {
       return this.commandeFournisseurService.findAllLignesCommandesFournisseurByCommandeFournisseurId(idCmd);
     }
