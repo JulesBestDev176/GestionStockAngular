@@ -128,6 +128,26 @@
     }
   ],
   "commandesClients": [
-
+    {
+      "id": "3751",
+      "client": {},
+      "code": "code",
+      "etatCommande": "EN_PREPARATION",
+      "idEntreprise": "330a"
+    },
+    {
+      "id": "b1e2",
+      "client": {},
+      "code": "code",
+      "etatCommande": "EN_PREPARATION",
+      "idEntreprise": "330a"
+    },
+    {
+      "id": "a2a0",
+      "client": {},
+      "code": "code",
+      "etatCommande": "EN_PREPARATION",
+      "idEntreprise": "330a"
+    }
   ]
 }

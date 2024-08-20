@@ -1,0 +1,17 @@
+.autoComplete {
+  border: solid 1px #ced4da !important ;
+  margin-top: 5px;
+  border-radius: 5px !important;
+  max-height: 150px !important;
+  overflow-y: scroll !important;
+  > p {
+    border-bottom: solid 1px #ced4da !important;
+    cursor: pointer !important;
+    &:hover {
+      background-color: #ced4da !important;
+    }
+  }
+  > p:last-child {
+    border-bottom: none !important;
+  }
+}
