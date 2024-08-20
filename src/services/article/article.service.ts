@@ -55,6 +55,10 @@ export class ArticleService implements OnInit{
     return of();
   }
 
+  findArticleByCode(codeArticle: string): Observable<ArticleDto> {
+    return this.findByCodeArticle(codeArticle);
+  }
+
 
 
 
@@ -217,7 +221,7 @@ export class ArticleService implements OnInit{
 
     let req = new HttpRequest<any>(
       'GET',
-      `${this.base._rootUrl}${this.baseUrl}/${codeArticle}`,
+      `${this.base._rootUrl}${this.baseUrl}?codeArticle=${codeArticle}`,
       __body,
       {
         headers: __headers,
@@ -235,7 +239,14 @@ export class ArticleService implements OnInit{
 
   findByCodeArticle(codeArticle: string): Observable<ArticleDto> {
     return this.findByCodeArticleResponse(codeArticle).pipe(
-      map(_r => _r.body as ArticleDto)
+      map(_r => {
+        const articles = _r.body as ArticleDto[];
+        if (articles && articles.length > 0) {
+          return articles[0];  // Retourner le premier article
+        } else {
+          throw new Error("Aucun article trouvé pour ce code");
+        }
+      })
     );
   }
 

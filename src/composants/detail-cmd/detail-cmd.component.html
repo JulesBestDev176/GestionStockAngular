@@ -1,33 +1,33 @@
 
-<div class="card row d-flex flex-row p-2 mb-2">
+<div class="card row d-flex flex-row p-2 mb-2" *ngIf="ligneCommande">
   <!--  Code article-->
-  <div class="col-md-2 d-flex align-items-center justify-content-center border-right">
+  <div class="col-md-2 d-flex align-items-center justify-content-center border-right" >
     <div>
-      ART-1234
+      {{ligneCommande.article?.codeArticle}}
     </div>
   </div>
   <!--  Description-->
   <div class="col-md-4 d-flex align-items-center justify-content-center border-right">
     <div class="">
-      Description de l'article
+      {{ligneCommande.article?.designation}}
     </div>
   </div>
   <!--  Quantite-->
   <div class="col-md-2 d-flex align-items-center justify-content-center border-right">
     <div class="">
-      6
+      {{ligneCommande.quantite}}
     </div>
   </div>
   <!--  Prix unitaire-->
   <div class="col-md-2 d-flex align-items-center border-right justify-content-center">
     <div class=" ">
-      12,3
+      {{ligneCommande.prixUnitaire}}
     </div>
   </div>
   <!--  Prix total-->
   <div class="col-md-2 d-flex align-items-center justify-content-center">
     <div class=" ">
-      73,8
+      {{ligneCommande.prixUnitaire && ligneCommande.quantite ? ligneCommande.prixUnitaire * ligneCommande.quantite : ''}}
     </div>
   </div>
 </div>

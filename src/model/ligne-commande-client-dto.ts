@@ -5,5 +5,5 @@ export interface LigneCommandeClientDto {
   article?: ArticleDto;
   quantite?: number;
   prixUnitaire?: number;
-  idEntreprise?: number;
+  idEntreprise?: string;
 }

@@ -7,20 +7,15 @@
     <div class="row">
       <div class="col-md-5 p-3 border-right">
         <div class="row mb-1">
-          <input type="email" class="form-control form-control-sm" placeholder="Code de la commande">
+          <input type="text" class="form-control form-control-sm" placeholder="Code de la commande">
         </div>
         <div class="row mb-1">
-          <div class="col-md-11 p-0">
-            <input type="date" class="form-control form-control-sm" placeholder="Code de la commande">
-          </div>
-          <div class="col-md-1 text-end align-items-center d-flex">
-            <i class="fa-regular fa-calendar-days"></i>
-          </div>
+            <input type="date" class="form-control form-control-sm">
         </div>
         <div class="row mb-1">
-          <select class="form-select form-select-sm" aria-label="Default select example">
-            <option value="1" selected>Jules Best</option>
-            <option value="2">Thierno lo</option>
+          <select class="form-select form-select-sm" aria-label="Default select example"  [(ngModel)]="selectedClientFournisseur" name="cltFrs"  >
+            <option selected [ngValue]="null" disabled>Selectionner un {{this.origin}}</option>
+            <option *ngFor="let client of listCltFrs" [ngValue]="client">{{client.prenom}}&nbsp;{{client.nom}}</option>
           </select>
         </div>
       </div>
@@ -30,7 +25,7 @@
             <i class="fa-solid fa-user text-primary"></i>
           </div>
           <div class="col-md-10">
-            Souleymane Fall
+            {{selectedClientFournisseur.nom}}
           </div>
         </div>
         <div class="col d-flex mb-1">
@@ -38,7 +33,7 @@
             <i class="fa-solid fa-envelope text-primary"></i>
           </div>
           <div class="col-md-10">
-            souleymanefallpro&#64;gmail.com
+            {{selectedClientFournisseur.mail}}
           </div>
         </div>
         <div class="col d-flex mb-1">
@@ -46,7 +41,7 @@
             <i class="fa-solid fa-square-phone text-success"></i>
           </div>
           <div class="col-md-10">
-            0011 22 33 44 55
+            {{selectedClientFournisseur.numTel}}
           </div>
         </div>
         <div class="col d-flex">
@@ -64,45 +59,38 @@
     </div>
   </div>
   <div class="card p-0 mb-1">
+    <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
     <div class="row p-2">
       <div class="col-md-4">
-        <input type="text" class="form-control form-control-sm" placeholder="Code Article">
+        <input type="text" class="form-control form-control-sm" placeholder="Code Article" name="codeAritcle" [(ngModel)]="codeArticle" (input)="searchArticle()">
       </div>
       <div class="col-md-4 ">
-        <input type="text" class="form-control form-control-sm" placeholder="Quantite">
+        <input type="text" class="form-control form-control-sm" placeholder="Quantite" name="quantite" [(ngModel)]="quantite">
       </div>
       <div class="col-md-4 ">
         <div class="row pe-3">
           <div class="col-md-10">
-            <input type="text" class="form-control form-control-sm" placeholder="Prix unitaire">
+            <input type="text" class="form-control form-control-sm" placeholder="Prix unitaire" name="prixUnitaire" [(ngModel)]="searchedArticle.prixUnitaireTtc">
           </div>
           <div class="col-md-1">
-            <button type="button" class="btn btn-success btn-sm">
+            <button type="button" class="btn btn-success btn-sm" (click)="ajouterLigneDeCommande()">
               <i class="fa-solid fa-plus"></i>
             </button>
           </div>
         </div>
       </div>
-
     </div>
   </div>
   <div class="card p-0 mb-3">
     <div class="card-body" style="height: 300px; overflow-y: scroll;">
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
-      <app-detail-cmd></app-detail-cmd>
+      <app-detail-cmd
+        *ngFor="let ligne of lignesCommandes"
+        [ligneCommande]="ligne"
+      ></app-detail-cmd>
     </div>
     <div class="card-footer ">
       <div class="row text-end">
-        <h5>Total de la commande 102,83$</h5>
+        <h5>Total de la commande {{totalCommande}} FCFA</h5>
       </div>
     </div>
   </div>
